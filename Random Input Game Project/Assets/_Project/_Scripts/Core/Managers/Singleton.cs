@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace PabloLario.Managers
+namespace Game.Managers
 {
     public class Singleton<T> : MonoBehaviour where T : Component
     {
