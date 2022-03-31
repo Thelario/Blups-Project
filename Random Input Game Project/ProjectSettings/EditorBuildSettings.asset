@@ -5,7 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/_Project/Scenes/Starting_Scene.unity
+    guid: 10ccf2a488671c04aa96066742111c66
+  - enabled: 1
+    path: Assets/_Project/Scenes/4DirObstacles_Minigame.unity
+    guid: 10a3801328a9e0c40a8530a8097aeab4
+  - enabled: 1
+    path: Assets/_Project/Scenes/Bomb_Minigame.unity
+    guid: 2b66bda1f726a5641ac113e95169f3d7
+  - enabled: 1
+    path: Assets/_Project/Scenes/1DirObstacles_Minigame.unity
+    guid: 3895682fea66def46ae222fce9531043
   m_configObjects: {}

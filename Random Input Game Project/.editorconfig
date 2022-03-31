@@ -1,0 +1,4 @@
+﻿[*.cs]
+
+# CS0809: El miembro obsoleto invalida un miembro no obsoleto
+dotnet_diagnostic.CS0809.severity = none

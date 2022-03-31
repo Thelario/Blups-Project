@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3067588258882951835
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3067588258882951834}
+  - component: {fileID: 5159801275042438636}
+  m_Layer: 0
+  m_Name: Dir1ObjectsSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3067588258882951834
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3067588258882951835}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5159801275042438636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3067588258882951835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 337948739d6397649814fa9a532136d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBetweenObstacles: 0.2
+  obstaclesPrefabs:
+  - {fileID: 4950815767151996467, guid: 14f76f2ba76b09042ae0466d1bc1baf1, type: 3}
+  - {fileID: 3446047844694170310, guid: 5b07c938f0ae48d4d95baff578db6dd0, type: 3}
+  - {fileID: 1101157184721556679, guid: 75d937f3db0670b42addc92c58ea5651, type: 3}
+  waypoints:
+  - spawnPoints:
+    - {x: -10, y: -4, z: 0}
+    - {x: -10, y: -3, z: 0}
+    - {x: -10, y: -2, z: 0}
+    - {x: -10, y: -1, z: 0}
+    - {x: -10, y: 0, z: 0}
+    - {x: -10, y: 1, z: 0}
+    - {x: -10, y: 2, z: 0}
+    - {x: -10, y: 3, z: 0}
+    - {x: -10, y: 4, z: 0}
+  - spawnPoints:
+    - {x: 10, y: -4, z: 0}
+    - {x: 10, y: -3, z: 0}
+    - {x: 10, y: -2, z: 0}
+    - {x: 10, y: -1, z: 0}
+    - {x: 10, y: 0, z: 0}
+    - {x: 10, y: 1, z: 0}
+    - {x: 10, y: 2, z: 0}
+    - {x: 10, y: 3, z: 0}
+    - {x: 10, y: 4, z: 0}
+  - spawnPoints:
+    - {x: 8, y: -6, z: 0}
+    - {x: 7, y: -6, z: 0}
+    - {x: 6, y: -6, z: 0}
+    - {x: 5, y: -6, z: 0}
+    - {x: 4, y: -6, z: 0}
+    - {x: 3, y: -6, z: 0}
+    - {x: 2, y: -6, z: 0}
+    - {x: 1, y: -6, z: 0}
+    - {x: 0, y: -6, z: 0}
+    - {x: -1, y: -6, z: 0}
+    - {x: -2, y: -6, z: 0}
+    - {x: -3, y: -6, z: 0}
+    - {x: -4, y: -6, z: 0}
+    - {x: -5, y: -6, z: 0}
+    - {x: -6, y: -6, z: 0}
+    - {x: -7, y: -6, z: 0}
+    - {x: -8, y: -6, z: 0}
+  - spawnPoints:
+    - {x: 8, y: 6, z: 0}
+    - {x: 7, y: 6, z: 0}
+    - {x: 6, y: 6, z: 0}
+    - {x: 5, y: 6, z: 0}
+    - {x: 4, y: 6, z: 0}
+    - {x: 3, y: 6, z: 0}
+    - {x: 2, y: 6, z: 0}
+    - {x: 1, y: 6, z: 0}
+    - {x: 0, y: 6, z: 0}
+    - {x: -1, y: 6, z: 0}
+    - {x: -2, y: 6, z: 0}
+    - {x: -3, y: 6, z: 0}
+    - {x: -4, y: 6, z: 0}
+    - {x: -5, y: 6, z: 0}
+    - {x: -6, y: 6, z: 0}
+    - {x: -7, y: 6, z: 0}
+    - {x: -8, y: 6, z: 0}
