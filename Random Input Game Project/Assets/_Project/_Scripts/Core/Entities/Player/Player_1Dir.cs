@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Game.Managers;
+using Game.Spawnners;
+using UnityEngine;
 
 namespace Game.Entities
 {
@@ -8,6 +10,18 @@ namespace Game.Entities
         [SerializeField] private float upDownFixedPos;
 
         private bool _moveHorizontal = true;
+
+        protected override void Awake()
+        {
+            base.Awake();
+
+            Dir1ObjectsSpawner.OnSpawnFalse += SetupPlayer;
+        }
+
+        private void OnDestroy()
+        {
+            Dir1ObjectsSpawner.OnSpawnFalse -= SetupPlayer;
+        }
 
         protected override void GetMoveInput()
         {
@@ -29,6 +43,11 @@ namespace Game.Entities
             }
 
             _rb2D.velocity = Time.fixedDeltaTime * moveSpeed * new Vector2(0f, _verticalRaw);
+        }
+
+        private void SetupPlayer()
+        {
+            SetMoveHorizontal(GameManager.Instance.obstaclesCurrentDirection);
         }
 
         public void SetMoveHorizontal(Direction dir)

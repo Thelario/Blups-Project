@@ -1,13 +1,15 @@
 using Game.Entities;
 using Game.Managers;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game.Spawnners
 {
     public class Dir1ObjectsSpawner : MonoBehaviour
     {
+        public delegate void SpawnEvent();
+        public static event SpawnEvent OnSpawnFalse;
+
         [Header("Player Ref")]
         [SerializeField] private Player_1Dir player;
 
@@ -41,7 +43,6 @@ namespace Game.Spawnners
         private IEnumerator Spawn()
         {
             Direction dir = GameManager.Instance.obstaclesCurrentDirection;
-            player.SetMoveHorizontal(dir);
 
             while (true)
             {
@@ -65,6 +66,7 @@ namespace Game.Spawnners
             StopCoroutine(nameof(Spawn));
 
             GameManager.Instance.SetRandomDirection();
+            OnSpawnFalse?.Invoke();
         }
 
         private Vector3 GetRandomSpawnpoint(Direction dir)

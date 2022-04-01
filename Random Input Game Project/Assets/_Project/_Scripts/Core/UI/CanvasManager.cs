@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Game.UI
 {
@@ -50,8 +49,6 @@ namespace Game.UI
             CanvasController desiredCanvas = canvasControllerList.Find(x => x.canvasType == _type);
             if (desiredCanvas != null)
             {
-                //if (_type == CanvasType.GameMenu && desiredCanvas.canvasType == CanvasType.)
-
                 desiredCanvas.gameObject.SetActive(true);
                 lastActiveCanvas = desiredCanvas;
             }

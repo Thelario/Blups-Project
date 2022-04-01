@@ -41,12 +41,22 @@ namespace Game.Managers
 
         private void OnLevelWasLoaded(int level)
         {
-            _timeBetweenWavesCounter = timeBetweenWaves;
-            _timeBetweenPausesCounter = timeBetweenPauses;
-            _levelState = LevelState.PauseBetween;
+            if (GameManager.Instance.loopIndefinitely)
+            {
+                _levelState = LevelState.Playing;
+                OnLevelEnd?.Invoke();
+                OnGameStart?.Invoke();
+                OnLevelStart?.Invoke();
+            }
+            else
+            {
+                _timeBetweenWavesCounter = timeBetweenWaves;
+                _timeBetweenPausesCounter = timeBetweenPauses;
+                _levelState = LevelState.PauseBetween;
 
-            OnLevelEnd?.Invoke();
-            OnGameStart?.Invoke();
+                OnLevelEnd?.Invoke();
+                OnGameStart?.Invoke();
+            }
         }
 
         private void Update()
@@ -57,6 +67,9 @@ namespace Game.Managers
         private void CheckTime()
         {
             UpdateLevelTime();
+
+            if (GameManager.Instance.loopIndefinitely)
+                return;
 
             if (_levelState == LevelState.Playing)
             {
@@ -105,14 +118,13 @@ namespace Game.Managers
 
             _currentLevelTime += Time.deltaTime;
 
-            if (currentLevelTimeText != null)
-                currentLevelTimeText.text = ((int)_currentLevelTime).ToString();
+            //if (currentLevelTimeText != null)
+            //    currentLevelTimeText.text = ((int)_currentLevelTime).ToString();
         }
 
         private void UpdateTimeBetweenText(float time)
         {
-            if (currentLevelTimeText != null)
-                timeBetweenText.text = ((int)time).ToString();
+            timeBetweenText.text = ((int)time).ToString();
         }
     }
 }

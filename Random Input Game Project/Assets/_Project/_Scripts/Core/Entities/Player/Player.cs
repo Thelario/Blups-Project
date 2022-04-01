@@ -1,6 +1,7 @@
 using UnityEngine;
 using Game.Managers;
 using System.Collections;
+using Game.UI;
 
 namespace Game.Entities
 {
@@ -20,7 +21,7 @@ namespace Game.Entities
         protected Rigidbody2D _rb2D;
         protected Transform _transform;
 
-        protected void Awake()
+        protected virtual void Awake()
         {
             _rb2D = GetComponent<Rigidbody2D>();
             _transform = transform;
@@ -28,12 +29,23 @@ namespace Game.Entities
 
         protected void Update()
         {
+            GetPauseInput();
+
             GetMoveInput();
         }
 
         protected void FixedUpdate()
         {
             Move();
+        }
+
+        protected void GetPauseInput()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                CanvasManager.Instance.SwitchCanvas(CanvasType.GamePause);
+                TimeManager.Instance.Pause();
+            }
         }
 
         protected abstract void GetMoveInput();

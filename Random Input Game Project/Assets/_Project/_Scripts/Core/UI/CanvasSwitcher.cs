@@ -31,6 +31,7 @@ namespace Game.UI
                 case CanvasType.GameMenu:
                     TimeManager.Instance.Resume();
                     _canvasManager.SwitchCanvas(desiredCanvasType);
+                    GameManager.Instance.loopIndefinitely = false;
                     if (loadNewScene)
                         SceneGameManager.Instance.LoadRandomGameScene();
                     break;
