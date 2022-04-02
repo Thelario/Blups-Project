@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 namespace Game.Managers
 {
-    public enum Scenes { Starting, Dir4Obstacles, Bombs, Dir1Obstacles }
+    public enum Scenes { Starting, Dir4Obstacles, Bombs, Dir1Obstacles, Lasers, SizeMatters }
 
     public class SceneGameManager : Singleton<SceneGameManager>
     {

@@ -144,4 +144,12 @@ MonoBehaviour:
   soundAudioClipArray:
   - sound: 4
     audioClip: {fileID: 8300000, guid: 66cd072d718d6e641b9bcdc51c277386, type: 3}
-  volume: 0.5
+  - sound: 7
+    audioClip: {fileID: 8300000, guid: a0adcb5aee75fb94585fe2c5bcda8e15, type: 3}
+  - sound: 8
+    audioClip: {fileID: 8300000, guid: 31cd4dc4f7d7c664c82a4bb2b2ee44d4, type: 3}
+  - sound: 9
+    audioClip: {fileID: 8300000, guid: a4bfc7b91fda8b34c8a3ecea279afd2a, type: 3}
+  - sound: 10
+    audioClip: {fileID: 8300000, guid: fbad755a675fd5b4dba53d754a615fb6, type: 3}
+  volume: 1

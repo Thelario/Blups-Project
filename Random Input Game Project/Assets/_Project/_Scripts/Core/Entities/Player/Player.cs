@@ -65,7 +65,7 @@ namespace Game.Entities
             }
             else if (collision.CompareTag("Coin"))
             {
-                SoundManager.Instance.PlaySound(SoundType.Coin);
+                SoundManager.Instance.PlaySound(SoundType.Coin, 1.25f);
                 ParticlesManager.Instance.CreateParticle(ParticleType.CoinObtained, collision.transform.position);
                 LevelManager.OnCoinObtained?.Invoke();
                 CurrencyManager.Instance.IncreaseCurrency(1);

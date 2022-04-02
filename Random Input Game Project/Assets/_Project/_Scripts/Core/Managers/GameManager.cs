@@ -4,6 +4,9 @@ namespace Game.Managers
 {
     public class GameManager : Singleton<GameManager>
     {
+        public delegate void RandomDirectionChange();
+        public static event RandomDirectionChange OnRandomDirectionChange;
+
         [HideInInspector] public Direction obstaclesCurrentDirection;
 
         public float obstaclesVelocity = 350f;
@@ -13,7 +16,7 @@ namespace Game.Managers
         public void SetRandomDirection()
         {
             obstaclesCurrentDirection = (Direction)Random.Range(0, 4);
-            DangerAnimationManager.Instance.SetActiveExclamation(obstaclesCurrentDirection);
+            OnRandomDirectionChange?.Invoke();
         }
 
         public void SelectIndividualMinigame()

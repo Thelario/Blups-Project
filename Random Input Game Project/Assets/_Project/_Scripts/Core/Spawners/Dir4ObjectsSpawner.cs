@@ -25,7 +25,6 @@ namespace Game.Spawnners
         [SerializeField] private Waypoints[] waypoints;
 
         private int _prevChild = 0;
-
         private float _timeBetweenObstacles;
 
         private void Awake()
@@ -71,12 +70,27 @@ namespace Game.Spawnners
             }
         }
 
+        private GameObject GetRandomPrefab()
+        {
+            if (DifficultyManager.Instance.currentDifficulty == Difficulty.Easy)
+                return obstaclesPrefabs[Random.Range(0, 3)];
+
+            int n = Random.Range(0, 100);
+
+            if (n > 90)
+                return obstaclesPrefabs[2];
+            else if (n > 45)
+                return obstaclesPrefabs[1];
+            else
+                return obstaclesPrefabs[0];
+        }
+
         private IEnumerator Spawn()
         {
             while (true)
             {
                 Direction randomDir = (Direction)Random.Range(0, 4);
-                GameObject g = Instantiate(obstaclesPrefabs[Random.Range(0, obstaclesPrefabs.Length)], GetRandomSpawnpoint(randomDir), Quaternion.identity);
+                GameObject g = Instantiate(GetRandomPrefab(), GetRandomSpawnpoint(randomDir), Quaternion.identity);
                
                 if (g.TryGetComponent(out IDirectable id))
                     id.SetDirection(randomDir);
@@ -87,14 +101,12 @@ namespace Game.Spawnners
 
         private void SetSpawnTrue()
         {
-            DangerAnimationManager.Instance.SetActiveAllDangerParticles(false);
             StartCoroutine(nameof(Spawn));
         }
 
         private void SetSpawnFalse()
         {
             StopCoroutine(nameof(Spawn));
-
             GameManager.Instance.SetRandomDirection();
         }
 

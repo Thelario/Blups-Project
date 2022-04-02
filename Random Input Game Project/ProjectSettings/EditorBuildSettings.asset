@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Project/Scenes/1DirObstacles_Minigame.unity
     guid: 3895682fea66def46ae222fce9531043
+  - enabled: 1
+    path: Assets/_Project/Scenes/Laser_Minigame.unity
+    guid: 379a06863e0c2a843803704ce8c8da1a
+  - enabled: 1
+    path: Assets/_Project/Scenes/Huge_Obstacles_Minigame.unity
+    guid: fc730e3181859864a9c1a0686df3f90f
   m_configObjects: {}

@@ -1,5 +1,6 @@
 using UnityEngine;
 using Game.Managers;
+
 namespace Game.Spawnners
 {
     public class CurrencySpawner : MonoBehaviour

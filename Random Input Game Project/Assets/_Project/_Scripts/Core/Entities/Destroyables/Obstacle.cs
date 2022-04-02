@@ -1,3 +1,4 @@
+using Game.Managers;
 using UnityEngine;
 
 #pragma warning disable CS0618 // El tipo o el miembro están obsoletos
@@ -8,6 +9,7 @@ namespace Game.Entities
     {
         [SerializeField] private float moveSpeed;
         [SerializeField] private ParticleSystem trailParticles;
+        [SerializeField] private bool changeSpeedAccordingToDifficulty = false;
 
         private Direction _direction;
         private Vector2 _moveDirection;
@@ -26,23 +28,45 @@ namespace Game.Entities
             _renderer = _transform.GetChild(0).GetComponent<SpriteRenderer>();
             _animator = GetComponent<Animator>();
 
-            //_direction = GameManager.Instance.obstaclesCurrentDirection;
-            //_moveDirection = Utils.GetInverseMoveDirection(_direction);
-            //Rotate();
-
-            _transform.localScale = GetRandomSize();
-            _renderer.color = Utils.GetRandomColor();
+            _renderer.color = ColorPalettesManager.Instance.GetRandomColor();
             trailParticles.startColor = new Color(_renderer.color.r, _renderer.color.g, _renderer.color.b, 0.25f); // Código obsoleto pero que me da pereza buscar hacerlo bien :)
         }
 
         private void Start()
         {
-            DestroyYourself(7.5f);
+            SoundManager.Instance.PlaySound(SoundType.Slash, Random.Range(0.05f, 0.15f));
+            
+            if (changeSpeedAccordingToDifficulty)
+                ChangeDifficulty();
+
+            DestroyYourself(3f);
         }
 
         private void FixedUpdate()
         {
             Move();
+        }
+
+        private void OnLevelWasLoaded(int level)
+        {
+            if (level == 1)
+                moveSpeed = 350f;
+        }
+
+        public void ChangeDifficulty()
+        {
+            switch (DifficultyManager.Instance.currentDifficulty)
+            {
+                case Difficulty.Easy:
+                    moveSpeed = 350f;
+                    break;
+                case Difficulty.Medium:
+                    moveSpeed = 450f;
+                    break;
+                case Difficulty.Hard:
+                    moveSpeed = 550f;
+                    break;
+            }
         }
 
         public void SetDirection(Direction direction)
@@ -68,17 +92,6 @@ namespace Game.Entities
         private void Move()
         {
             _rb2D.velocity = Time.fixedDeltaTime * moveSpeed * _moveDirection;
-        }
-
-        private Vector3 GetRandomSize()
-        {
-            float bound = Random.Range(0.5f, 2f);
-            return new Vector3(bound, bound, 1f);
-
-            /*
-            return new Vector3(Random.Range(_transform.localScale.x - 0.5f, _transform.localScale.x + 0.5f), 
-                               Random.Range(_transform.localScale.y - 0.5f, _transform.localScale.y + 0.5f), 0f);
-            */
         }
     }
 }

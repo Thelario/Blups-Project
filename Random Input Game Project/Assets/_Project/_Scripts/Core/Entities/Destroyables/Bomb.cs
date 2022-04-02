@@ -1,3 +1,4 @@
+using Game.Managers;
 using UnityEngine;
 
 namespace Game.Entities
@@ -13,6 +14,7 @@ namespace Game.Entities
 
         private void Start()
         {
+            SoundManager.Instance.PlaySound(SoundType.Bomb, Random.Range(0.15f, 0.25f));
             DestroyYourself(2f / 3f);
         }
 

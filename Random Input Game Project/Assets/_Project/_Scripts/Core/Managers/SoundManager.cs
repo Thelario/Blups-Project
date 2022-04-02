@@ -111,6 +111,10 @@ namespace Game.Managers
         ButtonClick,
         Coin,
         PowerUp,
-        PlayerDeath
+        PlayerDeath,
+        Bomb,
+        Laser,
+        Slash,
+        Danger
     }
 }

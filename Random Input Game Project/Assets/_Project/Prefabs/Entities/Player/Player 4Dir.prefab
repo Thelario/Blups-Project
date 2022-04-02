@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 350
-  timePassedWhenHit: 2
+  timePassedWhenHit: 1
 --- !u!1 &2844282872105292587
 GameObject:
   m_ObjectHideFlags: 0

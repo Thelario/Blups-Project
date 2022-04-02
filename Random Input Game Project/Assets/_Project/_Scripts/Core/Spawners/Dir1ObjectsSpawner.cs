@@ -71,13 +71,29 @@ namespace Game.Spawnners
 
             while (true)
             {
-                GameObject g = Instantiate(obstaclesPrefabs[Random.Range(0, obstaclesPrefabs.Length)], GetRandomSpawnpoint(dir), Quaternion.identity);
+
+                GameObject g = Instantiate(GetRandomPrefab(), GetRandomSpawnpoint(dir), Quaternion.identity);
 
                 if (g.TryGetComponent(out IDirectable id))
                     id.SetDirection(dir);
 
                 yield return new WaitForSeconds(_timeBetweenObstacles);
             }
+        }
+
+        private GameObject GetRandomPrefab()
+        {
+            if (DifficultyManager.Instance.currentDifficulty == Difficulty.Easy)
+                return obstaclesPrefabs[Random.Range(0, 3)];
+
+            int n = Random.Range(0, 100);
+
+            if (n > 90)
+                return obstaclesPrefabs[2];
+            else if (n > 45)
+                return obstaclesPrefabs[1];
+            else
+                return obstaclesPrefabs[0];
         }
 
         private void SetSpawnTrue()

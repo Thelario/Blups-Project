@@ -43,10 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 337948739d6397649814fa9a532136d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  timeBetweenObstaclesEasy: 0.25
-  timeBetweenObstaclesMedium: 0.15
-  timeBetweenObstaclesHard: 0.05
+  timeBetweenObstaclesEasy: 0.3
+  timeBetweenObstaclesMedium: 0.2
+  timeBetweenObstaclesHard: 0.1
   obstaclesPrefabs:
   - {fileID: 4950815767151996467, guid: 14f76f2ba76b09042ae0466d1bc1baf1, type: 3}
   - {fileID: 3446047844694170310, guid: 5b07c938f0ae48d4d95baff578db6dd0, type: 3}

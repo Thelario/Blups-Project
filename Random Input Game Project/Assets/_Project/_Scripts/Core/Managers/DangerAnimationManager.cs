@@ -7,9 +7,21 @@ namespace Game.Managers
         [SerializeField] private Transform[] dangerParticles;
         [SerializeField] private Transform[] directionParticles;
 
+        protected override void Awake()
+        {
+            base.Awake();
+
+            GameManager.OnRandomDirectionChange += RandomDirectionChange;
+        }
+
+        private void OnDestroy()
+        {
+            GameManager.OnRandomDirectionChange -= RandomDirectionChange;
+        }
+
         public void SetActiveAllDangerParticles(bool active)
         {
-            if (dangerParticles == null)
+            if (dangerParticles.Length == 0)
                 return;
 
             foreach (Transform ex in dangerParticles)
@@ -18,7 +30,7 @@ namespace Game.Managers
 
         public void SetActiveAllDirectionParticles(bool active)
         {
-            if (directionParticles == null)
+            if (directionParticles.Length == 0)
                 return;
 
             foreach (Transform p in directionParticles)
@@ -27,7 +39,7 @@ namespace Game.Managers
 
         public void SetActiveExclamation(Direction dir)
         {
-            if (dangerParticles == null || directionParticles == null)
+            if (dangerParticles.Length == 0 || directionParticles.Length == 0)
                 return;
 
             SetActiveAllDangerParticles(false);
@@ -36,6 +48,11 @@ namespace Game.Managers
             int d = (int)dir;
             dangerParticles[d].gameObject.SetActive(true);
             directionParticles[d].gameObject.SetActive(true);
+        }
+
+        private void RandomDirectionChange()
+        {
+            SetActiveExclamation(GameManager.Instance.obstaclesCurrentDirection);
         }
     }
 }
