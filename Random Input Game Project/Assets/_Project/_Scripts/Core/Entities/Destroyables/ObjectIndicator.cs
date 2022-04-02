@@ -3,9 +3,9 @@ using UnityEngine;
 
 namespace Game.Entities
 {
-    public class BombIndicator : DestroyableEntity
+    public class ObjectIndicator : DestroyableEntity
     {
-        [SerializeField] private GameObject bombPrefab;
+        [SerializeField] private GameObject objectPrefab;
 
         private Color _color;
 
@@ -25,15 +25,15 @@ namespace Game.Entities
 
         private void Start()
         {
-            StartCoroutine(nameof(SpawnBomb));
+            StartCoroutine(nameof(SpawnObject));
             Destroy(gameObject, 3.1f);
         }
 
-        private IEnumerator SpawnBomb()
+        private IEnumerator SpawnObject()
         {
             yield return new WaitForSeconds(3f);
 
-            GameObject g = Instantiate(bombPrefab, _transform.position, _transform.rotation);
+            GameObject g = Instantiate(objectPrefab, _transform.position, _transform.rotation);
             g.GetComponent<Bomb>().SetColor(_color);
         }
     }

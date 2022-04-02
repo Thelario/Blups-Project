@@ -468,9 +468,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: SingleObjectsSpawner
       objectReference: {fileID: 0}
-    - target: {fileID: 7856820573599663989, guid: 7e786fc6b8d44484fa2330034f0c258f, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e786fc6b8d44484fa2330034f0c258f, type: 3}

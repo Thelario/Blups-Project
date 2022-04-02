@@ -6,12 +6,17 @@ namespace Game
 {
     public class BombSpawner : MonoBehaviour
     {
-        [SerializeField] private float timeBetweenBombs;
+        [Header("Fields")]
+        [SerializeField] private float timeBetweenBombsEasy;
+        [SerializeField] private float timeBetweenBombsMedium;
+        [SerializeField] private float timeBetweenBombsHard;
+
         [SerializeField] private GameObject bombIndicatorPrefab;
 
         private Transform _thisTransform;
 
         private Vector3 _previousPos;
+        private float _timeBetweenBombs;
 
         private void Awake()
         {
@@ -22,6 +27,8 @@ namespace Game
             LevelManager.OnLevelEnd += StopSpawningBombs;
             LevelManager.OnLevelLost += StopSpawningBombs;
             LevelManager.OnLevelPause += StopSpawningBombs;
+
+            DifficultyManager.OnDifficultyChange += ChangeDifficulty;
         }
 
         private void OnDestroy()
@@ -30,6 +37,29 @@ namespace Game
             LevelManager.OnLevelEnd -= StopSpawningBombs;
             LevelManager.OnLevelLost -= StopSpawningBombs;
             LevelManager.OnLevelPause -= StopSpawningBombs;
+
+            DifficultyManager.OnDifficultyChange -= ChangeDifficulty;
+        }
+
+        private void OnLevelWasLoaded()
+        {
+            ChangeDifficulty();
+        }
+
+        public void ChangeDifficulty()
+        {
+            switch (DifficultyManager.Instance.currentDifficulty)
+            {
+                case Difficulty.Easy:
+                    _timeBetweenBombs = timeBetweenBombsEasy;
+                    break;
+                case Difficulty.Medium:
+                    _timeBetweenBombs = timeBetweenBombsMedium;
+                    break;
+                case Difficulty.Hard:
+                    _timeBetweenBombs = timeBetweenBombsHard;
+                    break;
+            }
         }
 
         private void StartSpawningBombs()
@@ -47,7 +77,7 @@ namespace Game
             while (true)
             {
                 SpawnBomb();
-                yield return new WaitForSeconds(timeBetweenBombs);
+                yield return new WaitForSeconds(_timeBetweenBombs);
             }
         }
 

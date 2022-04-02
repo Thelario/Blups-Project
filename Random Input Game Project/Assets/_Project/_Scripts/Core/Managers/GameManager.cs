@@ -1,4 +1,3 @@
-using Game.UI;
 using UnityEngine;
 
 namespace Game.Managers
@@ -15,6 +14,18 @@ namespace Game.Managers
         {
             obstaclesCurrentDirection = (Direction)Random.Range(0, 4);
             DangerAnimationManager.Instance.SetActiveExclamation(obstaclesCurrentDirection);
+        }
+
+        public void SelectIndividualMinigame()
+        {
+            loopIndefinitely = true;
+            LevelManager.Instance.SelectIndividualMinigame();
+        }
+
+        public void SelectLoopingMinigames()
+        {
+            loopIndefinitely = false;
+            LevelManager.Instance.SelectLoopingMinigames();
         }
     }
 }

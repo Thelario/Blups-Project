@@ -1,6 +1,5 @@
 ﻿using Game.Managers;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Game.UI
@@ -14,14 +13,12 @@ namespace Game.UI
         public CanvasType desiredCanvasType;
         public bool loadNewScene = false;
 
-        private CanvasManager _canvasManager;
         private Button _menuButton;
 
         private void Start()
         {
             _menuButton = GetComponent<Button>();
             _menuButton.onClick.AddListener(OnButtonClicked);
-            _canvasManager = CanvasManager.Instance;
         }
 
         private void OnButtonClicked()
@@ -30,20 +27,20 @@ namespace Game.UI
             {
                 case CanvasType.GameMenu:
                     TimeManager.Instance.Resume();
-                    _canvasManager.SwitchCanvas(desiredCanvasType);
-                    GameManager.Instance.loopIndefinitely = false;
+                    CanvasManager.Instance.SwitchCanvas(desiredCanvasType);
+                    GameManager.Instance.SelectLoopingMinigames();
                     if (loadNewScene)
                         SceneGameManager.Instance.LoadRandomGameScene();
                     break;
                 case CanvasType.MainMenu:
                     TimeManager.Instance.Pause();
-                    _canvasManager.SwitchCanvas(desiredCanvasType);
+                    CanvasManager.Instance.SwitchCanvas(desiredCanvasType);
                     if (loadNewScene)
                         SceneGameManager.Instance.LoadScene(Scenes.Starting);
                     break;
                 default:
                     TimeManager.Instance.Pause();
-                    _canvasManager.SwitchCanvas(desiredCanvasType);
+                    CanvasManager.Instance.SwitchCanvas(desiredCanvasType);
                     break;
             }
         }

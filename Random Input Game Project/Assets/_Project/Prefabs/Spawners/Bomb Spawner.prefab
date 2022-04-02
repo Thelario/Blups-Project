@@ -43,5 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa98d8581115f0c458230437dba9e101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenBombs: 0.2
+  timeBetweenBombsEasy: 0.35
+  timeBetweenBombsMedium: 0.25
+  timeBetweenBombsHard: 0.15
   bombIndicatorPrefab: {fileID: 3652093266746600928, guid: 496ccbedb4c769d42a6b8d8d22651624, type: 3}

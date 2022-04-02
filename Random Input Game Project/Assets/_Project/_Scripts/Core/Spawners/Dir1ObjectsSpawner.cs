@@ -10,17 +10,17 @@ namespace Game.Spawnners
         public delegate void SpawnEvent();
         public static event SpawnEvent OnSpawnFalse;
 
-        [Header("Player Ref")]
-        [SerializeField] private Player_1Dir player;
-
         [Header("Fields")]
-        [SerializeField] private float timeBetweenObstacles;
+        [SerializeField] private float timeBetweenObstaclesEasy;
+        [SerializeField] private float timeBetweenObstaclesMedium;
+        [SerializeField] private float timeBetweenObstaclesHard;
 
         [Header("References")]
         [SerializeField] private GameObject[] obstaclesPrefabs;
         [SerializeField] private Waypoints[] waypoints;
 
         private int _prevChild = 0;
+        private float _timeBetweenObstacles;
 
         private void Awake()
         {
@@ -29,6 +29,8 @@ namespace Game.Spawnners
             LevelManager.OnLevelEnd += SetSpawnFalse;
             LevelManager.OnLevelLost += SetSpawnFalse;
             LevelManager.OnLevelPause += SetSpawnFalse;
+
+            DifficultyManager.OnDifficultyChange += ChangeDifficulty;
         }
 
         private void OnDestroy()
@@ -38,6 +40,29 @@ namespace Game.Spawnners
             LevelManager.OnLevelEnd -= SetSpawnFalse;
             LevelManager.OnLevelLost -= SetSpawnFalse;
             LevelManager.OnLevelPause -= SetSpawnFalse;
+
+            DifficultyManager.OnDifficultyChange -= ChangeDifficulty;
+        }
+
+        private void OnLevelWasLoaded()
+        {
+            ChangeDifficulty();
+        }
+
+        public void ChangeDifficulty()
+        {
+            switch (DifficultyManager.Instance.currentDifficulty)
+            {
+                case Difficulty.Easy:
+                    _timeBetweenObstacles = timeBetweenObstaclesEasy;
+                    break;
+                case Difficulty.Medium:
+                    _timeBetweenObstacles = timeBetweenObstaclesMedium;
+                    break;
+                case Difficulty.Hard:
+                    _timeBetweenObstacles = timeBetweenObstaclesHard;
+                    break;
+            }
         }
 
         private IEnumerator Spawn()
@@ -51,7 +76,7 @@ namespace Game.Spawnners
                 if (g.TryGetComponent(out IDirectable id))
                     id.SetDirection(dir);
 
-                yield return new WaitForSeconds(timeBetweenObstacles);
+                yield return new WaitForSeconds(_timeBetweenObstacles);
             }
         }
 

@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 namespace Game.Managers
 {
@@ -44,6 +43,7 @@ namespace Game.Managers
             if (GameManager.Instance.loopIndefinitely)
             {
                 _levelState = LevelState.Playing;
+
                 OnLevelEnd?.Invoke();
                 OnGameStart?.Invoke();
                 OnLevelStart?.Invoke();
@@ -125,6 +125,16 @@ namespace Game.Managers
         private void UpdateTimeBetweenText(float time)
         {
             timeBetweenText.text = ((int)time).ToString();
+        }
+
+        public void SelectIndividualMinigame()
+        {
+            timeBetweenText.enabled = false;
+        }
+
+        public void SelectLoopingMinigames()
+        {
+            timeBetweenText.enabled = true;
         }
     }
 }

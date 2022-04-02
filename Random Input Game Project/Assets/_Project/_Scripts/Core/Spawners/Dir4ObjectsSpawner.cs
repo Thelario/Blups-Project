@@ -50,6 +50,11 @@ namespace Game.Spawnners
             DifficultyManager.OnDifficultyChange -= ChangeDifficulty;
         }
 
+        private void OnLevelWasLoaded()
+        {
+            ChangeDifficulty();
+        }
+
         public void ChangeDifficulty()
         {
             switch (DifficultyManager.Instance.currentDifficulty)
