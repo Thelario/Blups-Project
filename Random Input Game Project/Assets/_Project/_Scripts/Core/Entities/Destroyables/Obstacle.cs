@@ -49,8 +49,8 @@ namespace Game.Entities
 
         private void OnLevelWasLoaded(int level)
         {
-            if (level == 1)
-                moveSpeed = 350f;
+            //if (level == 1)
+            //    moveSpeed = 350f;
         }
 
         public void ChangeDifficulty()

@@ -9,8 +9,6 @@ namespace Game.Managers
 
         [HideInInspector] public Direction obstaclesCurrentDirection;
 
-        public float obstaclesVelocity = 350f;
-
         public bool loopIndefinitely = false;
 
         public void SetRandomDirection()

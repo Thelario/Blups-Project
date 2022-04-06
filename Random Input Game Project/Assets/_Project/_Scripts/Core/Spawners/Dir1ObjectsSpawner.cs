@@ -83,14 +83,11 @@ namespace Game.Spawnners
 
         private GameObject GetRandomPrefab()
         {
-            if (DifficultyManager.Instance.currentDifficulty == Difficulty.Easy)
-                return obstaclesPrefabs[Random.Range(0, 3)];
-
             int n = Random.Range(0, 100);
 
-            if (n > 90)
+            if (n > 80)
                 return obstaclesPrefabs[2];
-            else if (n > 45)
+            else if (n > 40)
                 return obstaclesPrefabs[1];
             else
                 return obstaclesPrefabs[0];

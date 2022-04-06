@@ -10,6 +10,11 @@ namespace Game.Managers
         public bool purchased = false;
         public bool selected = true;
         public Colors colors;
+
+        public void Buy()
+        {
+            purchased = true;
+        }
     }
 
     [System.Serializable]

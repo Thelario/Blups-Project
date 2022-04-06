@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: -901583878940194573, guid: 5a98f411a51785943af051871eeefccf, type: 3}
+  m_Sprite: {fileID: 6222564086634282383, guid: 5a98f411a51785943af051871eeefccf, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -179,6 +179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 350
   trailParticles: {fileID: 5619142098992178314}
+  changeSpeedAccordingToDifficulty: 0
 --- !u!95 &7330590327768400176
 Animator:
   serializedVersion: 3
@@ -270,7 +271,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -901583878940194573, guid: 5a98f411a51785943af051871eeefccf, type: 3}
+  m_Sprite: {fileID: 6222564086634282383, guid: 5a98f411a51785943af051871eeefccf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -82,7 +82,7 @@ MonoBehaviour:
       - {r: 0.9647059, g: 0.5372549, b: 0.5372549, a: 1}
       - {r: 0.9647059, g: 0.90588236, b: 0.84705883, a: 1}
   - price: 50
-    purchased: 1
+    purchased: 0
     selected: 1
     colors:
       colors:
@@ -91,7 +91,7 @@ MonoBehaviour:
       - {r: 1, g: 0.69803923, b: 0.6509804, a: 1}
       - {r: 1, g: 0.5411765, b: 0.68235296, a: 1}
   - price: 50
-    purchased: 1
+    purchased: 0
     selected: 1
     colors:
       colors:
@@ -100,7 +100,7 @@ MonoBehaviour:
       - {r: 1, g: 0.7529412, b: 0.827451, a: 1}
       - {r: 0.99215686, g: 0.9372549, b: 0.95686275, a: 1}
   - price: 50
-    purchased: 1
+    purchased: 0
     selected: 1
     colors:
       colors:
@@ -109,7 +109,7 @@ MonoBehaviour:
       - {r: 0.5647059, g: 0.8784314, b: 0.9372549, a: 1}
       - {r: 0.7921569, g: 0.9411765, b: 0.972549, a: 1}
   - price: 50
-    purchased: 1
+    purchased: 0
     selected: 1
     colors:
       colors:
@@ -118,7 +118,7 @@ MonoBehaviour:
       - {r: 0.7647059, g: 0.85882354, b: 0.8509804, a: 1}
       - {r: 0.78431374, g: 0.9490196, b: 0.9372549, a: 1}
   - price: 50
-    purchased: 1
+    purchased: 0
     selected: 1
     colors:
       colors:
@@ -126,3 +126,18 @@ MonoBehaviour:
       - {r: 0.47058824, g: 0.5921569, b: 0.67058825, a: 1}
       - {r: 0.84705883, g: 0.52156866, b: 0.6392157, a: 1}
       - {r: 0.99215686, g: 0.80784315, b: 0.7254902, a: 1}
+  - price: 50
+    purchased: 0
+    selected: 1
+    colors:
+      colors:
+      - {r: 0, g: 0.5058824, b: 0.28235295, a: 1}
+      - {r: 0.9607843, g: 0.7176471, b: 0, a: 1}
+      - {r: 0, g: 0.6313726, b: 0.89411765, a: 1}
+      - {r: 0.8627451, g: 0, b: 0.4509804, a: 1}
+  currentPalette:
+    price: 25
+    purchased: 0
+    selected: 1
+    colors:
+      colors: []

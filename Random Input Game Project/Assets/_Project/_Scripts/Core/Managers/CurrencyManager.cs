@@ -1,12 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game.Managers
 {
     public class CurrencyManager : Singleton<CurrencyManager>
     {
-        private int _currencyAmount;
+        public delegate void UpdateCurrency(int currency);
+        public static event UpdateCurrency OnUpdateCurrency;
+
+        [SerializeField] private int _currencyAmount;
+
+        public int CurrencyAmount
+        {
+            get
+            {
+                return _currencyAmount;
+            }
+        }
 
         protected override void Awake()
         {
@@ -18,6 +27,7 @@ namespace Game.Managers
         public void IncreaseCurrency(int value) 
         {
             _currencyAmount += value;
+            OnUpdateCurrency?.Invoke(_currencyAmount);
             Save();
         }
 
@@ -27,6 +37,7 @@ namespace Game.Managers
                 return false;
 
             _currencyAmount -= value;
+            OnUpdateCurrency?.Invoke(_currencyAmount);
             Save();
             return true;
         }
@@ -39,6 +50,8 @@ namespace Game.Managers
         private void Load()
         {
             // TODO: add a loading system for the currency amount
+            // TODO: after loading
+            OnUpdateCurrency?.Invoke(_currencyAmount);
         }
     }
 }

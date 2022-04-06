@@ -15,7 +15,15 @@ namespace Game.UI
         MainAchievements,
         GameMenu,
         GamePause,
-        GameOptions
+        GameOptions,
+        ColorPalettesShop,
+        MinigamesShop,
+        SkinsShop,
+        VaultMenu,
+        VaultPalettes,
+        VaultSkins,
+        VaultMinigames,
+        ScretsMenu
     }
 
     /// <summary>

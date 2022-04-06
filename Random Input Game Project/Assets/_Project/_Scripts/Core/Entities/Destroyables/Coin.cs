@@ -21,35 +21,12 @@ namespace Game.Entities
 
         private void Start()
         {
-            ChangeDifficulty();
             DestroyYourself(3f);
         }
 
         private void FixedUpdate()
         {
             Move();
-        }
-
-        private void OnLevelWasLoaded(int level)
-        {
-            if (level == 1)
-                moveSpeed = 350f;
-        }
-
-        public void ChangeDifficulty()
-        {
-            switch (DifficultyManager.Instance.currentDifficulty)
-            {
-                case Difficulty.Easy:
-                    moveSpeed = 350f;
-                    break;
-                case Difficulty.Medium:
-                    moveSpeed = 450f;
-                    break;
-                case Difficulty.Hard:
-                    moveSpeed = 550f;
-                    break;
-            }
         }
 
         public void SetDirection(Direction direction)

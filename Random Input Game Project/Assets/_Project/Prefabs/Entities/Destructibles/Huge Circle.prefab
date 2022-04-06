@@ -72,6 +72,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1250
   trailParticles: {fileID: 6332260358622310669}
+  changeSpeedAccordingToDifficulty: 0
 --- !u!61 &6136843877551572235
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -188,7 +189,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 6890261682252298640, guid: 5a98f411a51785943af051871eeefccf, type: 3}
+  m_Sprite: {fileID: -3651705075160503483, guid: 5a98f411a51785943af051871eeefccf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -270,7 +271,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 6890261682252298640, guid: 5a98f411a51785943af051871eeefccf, type: 3}
+  m_Sprite: {fileID: -3651705075160503483, guid: 5a98f411a51785943af051871eeefccf, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
