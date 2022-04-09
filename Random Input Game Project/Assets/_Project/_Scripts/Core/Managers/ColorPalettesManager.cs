@@ -6,7 +6,7 @@ namespace Game.Managers
     [System.Serializable]
     public class ColorPalette
     {
-        public int price = 25;
+        [HideInInspector] public int price = 25;
         public bool purchased = false;
         public bool selected = true;
         public Colors colors;
@@ -28,6 +28,7 @@ namespace Game.Managers
         public List<ColorPalette> colorPalettes;
 
         public ColorPalette currentPalette;
+        [SerializeField] private ColorPalette defaultPalette;
 
         protected override void Awake()
         {
@@ -35,12 +36,20 @@ namespace Game.Managers
 
             LevelManager.OnLevelStart += SetNewPalette;
             LevelManager.OnGameStart += SetNewPalette;
+
+            SetupPalettesPrices();
         }
 
         private void OnDestroy()
         {
             LevelManager.OnLevelStart -= SetNewPalette;
             LevelManager.OnGameStart -= SetNewPalette;
+        }
+
+        private void SetupPalettesPrices()
+        {
+            foreach (ColorPalette cp in colorPalettes)
+                cp.price = 25;
         }
 
         private void SetNewPalette()
@@ -57,8 +66,13 @@ namespace Game.Managers
 
             foreach (ColorPalette cp in colorPalettes)
             {
-                if (cp.selected)
+                if (cp.selected && cp.purchased)
                     selectedPalettes.Add(cp);
+            }
+
+            if (selectedPalettes.Count == 0)
+            {
+                return defaultPalette;
             }
 
             return selectedPalettes[Random.Range(0, selectedPalettes.Count)];

@@ -27,14 +27,14 @@ namespace Game.UI
             {
                 case CanvasType.GameMenu:
                     TimeManager.Instance.Resume();
-                    CanvasManager.Instance.SwitchCanvas(desiredCanvasType);
+                    CanvasManager.Instance.SwitchCanvas(desiredCanvasType, SceneGameManager.Instance.transitionTime * 1.1f);
                     GameManager.Instance.SelectLoopingMinigames();
                     if (loadNewScene)
                         SceneGameManager.Instance.LoadRandomGameScene();
                     break;
                 case CanvasType.MainMenu:
                     TimeManager.Instance.Pause();
-                    CanvasManager.Instance.SwitchCanvas(desiredCanvasType);
+                    CanvasManager.Instance.SwitchCanvas(desiredCanvasType, SceneGameManager.Instance.transitionTime * 1.1f);
                     if (loadNewScene)
                         SceneGameManager.Instance.LoadScene(Scenes.Starting);
                     break;

@@ -21,7 +21,7 @@ namespace Game.UI
             GameManager.Instance.SelectIndividualMinigame();
             TimeManager.Instance.Resume();
             SceneGameManager.Instance.LoadScene(sceneToLoad);
-            CanvasManager.Instance.SwitchCanvas(CanvasType.GameMenu);
+            CanvasManager.Instance.SwitchCanvas(CanvasType.GameMenu, SceneGameManager.Instance.transitionTime * 1.1f);
         }
     }
 }

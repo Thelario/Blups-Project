@@ -10,12 +10,14 @@ namespace Game.UI
         [SerializeField] private TMP_Text text;
         [SerializeField] private Image[] colors;
         [SerializeField] private PalettesShop palettesShop;
+        [SerializeField] private GameObject parentPanel;
 
         private ColorPalette _currentPalette;
 
         private void Awake()
         {
             transform.localScale = Vector3.zero;
+            DeactivatePanel();
         }
 
         private void SetupPanel(ColorPalette colorPalette)
@@ -51,10 +53,16 @@ namespace Game.UI
             StartPanelClosing();
         }
 
+        private void DeactivatePanel()
+        {
+            parentPanel.SetActive(false);
+        }
+
         /* ANIMATIONS */
 
         private void AnimatePanelOpening()
         {
+            parentPanel.SetActive(true);
             LeanTween.scale(gameObject, new Vector3(1.15f, 1.15f, 1.15f), .5f).setIgnoreTimeScale(true).setOnComplete(FinalPanelOpening);
         }
 
@@ -65,7 +73,7 @@ namespace Game.UI
 
         private void AnimatePanelClosing()
         {
-            LeanTween.scale(gameObject, Vector3.zero, .5f).setIgnoreTimeScale(true);
+            LeanTween.scale(gameObject, Vector3.zero, .5f).setIgnoreTimeScale(true).setOnComplete(DeactivatePanel);
         }
 
         private void StartPanelClosing()

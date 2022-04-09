@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,11 +10,14 @@ namespace Game.Managers
     {
         public int currentScene;
 
+        public float transitionTime;
+        [SerializeField] private Animator transitionAnimator;
+
         public void LoadScene(Scenes scene)
         {
             int sc = (int)scene;
             currentScene = sc;
-            SceneManager.LoadScene(sc);
+            StartCoroutine(SceneTransition(sc));
         }
 
         public void LoadRandomGameScene()
@@ -25,7 +29,16 @@ namespace Game.Managers
             } while (sc == currentScene);
 
             currentScene = sc;
-            SceneManager.LoadScene(sc);
+            StartCoroutine(SceneTransition(sc));
+        }
+
+        private IEnumerator SceneTransition(int scene)
+        {
+            transitionAnimator.Play("SceneEnd");
+
+            yield return new WaitForSecondsRealtime(transitionTime);
+
+            SceneManager.LoadScene(scene);
         }
     }
 }
