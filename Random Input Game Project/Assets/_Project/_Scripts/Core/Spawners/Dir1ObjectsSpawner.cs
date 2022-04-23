@@ -21,6 +21,7 @@ namespace Game.Spawnners
 
         private int _prevChild = 0;
         private float _timeBetweenObstacles;
+        private Direction _direction;
 
         private void Awake()
         {
@@ -46,6 +47,9 @@ namespace Game.Spawnners
 
         private void OnLevelWasLoaded()
         {
+            GameManager.Instance.SetRandomDirection();
+            OnSpawnFalse?.Invoke();
+
             ChangeDifficulty();
         }
 
@@ -60,22 +64,24 @@ namespace Game.Spawnners
                     _timeBetweenObstacles = timeBetweenObstaclesMedium;
                     break;
                 case Difficulty.Hard:
-                    _timeBetweenObstacles = timeBetweenObstaclesHard;
+                    if (_direction == Direction.Down || _direction == Direction.Up)
+                        _timeBetweenObstacles = timeBetweenObstaclesHard - 0.1f;
+                    else
+                        _timeBetweenObstacles = timeBetweenObstaclesHard;
                     break;
             }
         }
 
         private IEnumerator Spawn()
         {
-            Direction dir = GameManager.Instance.obstaclesCurrentDirection;
+            _direction = GameManager.Instance.obstaclesCurrentDirection;
 
             while (true)
             {
-
-                GameObject g = Instantiate(GetRandomPrefab(), GetRandomSpawnpoint(dir), Quaternion.identity);
+                GameObject g = Instantiate(GetRandomPrefab(), GetRandomSpawnpoint(_direction), Quaternion.identity);
 
                 if (g.TryGetComponent(out IDirectable id))
-                    id.SetDirection(dir);
+                    id.SetDirection(_direction);
 
                 yield return new WaitForSeconds(_timeBetweenObstacles);
             }
@@ -86,8 +92,6 @@ namespace Game.Spawnners
             int n = Random.Range(0, 100);
 
             if (n > 80)
-                return obstaclesPrefabs[2];
-            else if (n > 40)
                 return obstaclesPrefabs[1];
             else
                 return obstaclesPrefabs[0];
@@ -102,9 +106,6 @@ namespace Game.Spawnners
         private void SetSpawnFalse()
         {
             StopCoroutine(nameof(Spawn));
-
-            GameManager.Instance.SetRandomDirection();
-            OnSpawnFalse?.Invoke();
         }
 
         private Vector3 GetRandomSpawnpoint(Direction dir)

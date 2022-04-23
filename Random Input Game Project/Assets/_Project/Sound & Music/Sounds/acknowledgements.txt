@@ -1,5 +1,0 @@
-coin: ProjectsU012 (https://freesound.org/people/ProjectsU012/sounds/341695/)
-laser: bubaproducer (https://freesound.org/people/bubaproducer/sounds/151022/)
-bomb: poolotronix
-slash: qubodup
-danger: Annyew (https://freesound.org/people/Annyew/sounds/580114/#comments)

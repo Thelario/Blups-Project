@@ -7,6 +7,7 @@ namespace Game.Entities
 {
     public abstract class Player : MonoBehaviour
     {
+        [Header("Fields")]
         [SerializeField] protected float moveSpeed;
         [SerializeField] protected float timePassedWhenHit = 2f;
 
@@ -59,17 +60,18 @@ namespace Game.Entities
                 if (_invencible)
                     return;
 
+                SoundManager.Instance.PlaySound(SoundType.PlyerObstacleHit);
                 TimeManager.Instance.SlowTime(timePassedWhenHit);
                 StartCoroutine(nameof(MakeInvencible));
-                DifficultyManager.Instance.PlayerMistake(4);
+                DifficultyManager.Instance.PlayerMistake();
             }
             else if (collision.CompareTag("Coin"))
             {
-                SoundManager.Instance.PlaySound(SoundType.Coin, 1.25f);
+                SoundManager.Instance.PlaySound(SoundType.Coin);
                 ParticlesManager.Instance.CreateParticle(ParticleType.CoinObtained, collision.transform.position);
                 LevelManager.OnCoinObtained?.Invoke();
                 CurrencyManager.Instance.IncreaseCurrency(1);
-                DifficultyManager.Instance.PlayerSuccess(2);
+                DifficultyManager.Instance.PlayerSuccess();
                 Destroy(collision.gameObject);
             }
         }

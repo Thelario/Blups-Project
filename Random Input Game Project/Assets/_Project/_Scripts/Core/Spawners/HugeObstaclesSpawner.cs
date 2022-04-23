@@ -73,12 +73,12 @@ namespace Game.Spawnners
             {
                 if (_spawnDouble)
                 {
-                    Direction randomDir1 = (Direction)Random.Range(0, 4);
+                    Direction randomDir1 = (Direction)Random.Range(0, 2);
                     Vector3 spawnPoint1 = GetRandomSpawnpoint(randomDir1);
                     exclamationManager.CreateExclamation(spawnPoint1, randomDir1);
                     SoundManager.Instance.PlaySound(SoundType.Danger, Random.Range(0.10f, 0.2f));
 
-                    Direction randomDir2 = (Direction)Random.Range(0, 4);
+                    Direction randomDir2 = (Direction)Random.Range(0, 2);
                     Vector3 spawnPoint2 = GetRandomSpawnpoint(randomDir2);
                     exclamationManager.CreateExclamation(spawnPoint2, randomDir2);
                     SoundManager.Instance.PlaySound(SoundType.Danger, Random.Range(0.10f, 0.2f));
@@ -98,7 +98,7 @@ namespace Game.Spawnners
                 }
                 else
                 {
-                    Direction randomDir = (Direction)Random.Range(0, 4);
+                    Direction randomDir = (Direction)Random.Range(0, 2);
                     Vector3 spawnPoint = GetRandomSpawnpoint(randomDir);
                     exclamationManager.CreateExclamation(spawnPoint, randomDir);
                     SoundManager.Instance.PlaySound(SoundType.Danger, Random.Range(0.10f, 0.2f));

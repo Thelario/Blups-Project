@@ -123,9 +123,9 @@ MonoBehaviour:
     colors:
       colors:
       - {r: 0, g: 0.5058824, b: 0.28235295, a: 1}
-      - {r: 0.9607843, g: 0.7176471, b: 0, a: 1}
+      - {r: 0.9607843, g: 0.40391326, b: 0, a: 1}
       - {r: 0, g: 0.6313726, b: 0.89411765, a: 1}
-      - {r: 0.8627451, g: 0, b: 0.4509804, a: 1}
+      - {r: 0.8627451, g: 0, b: 0.62401116, a: 1}
   - price: 50
     purchased: 0
     selected: 1
@@ -239,7 +239,8 @@ MonoBehaviour:
     purchased: 0
     selected: 1
     colors:
-      colors: []
+      colors:
+      - {r: 1, g: 1, b: 1, a: 1}
   defaultPalette:
     price: 25
     purchased: 1

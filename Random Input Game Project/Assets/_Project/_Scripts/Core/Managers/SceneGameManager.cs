@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 namespace Game.Managers
 {
-    public enum Scenes { Starting, Dir4Obstacles, Bombs, Dir1Obstacles, Lasers, SizeMatters }
+    public enum Scenes { Starting, Bombs, Dir1Obstacles, Lasers, SizeMatters }
 
     public class SceneGameManager : Singleton<SceneGameManager>
     {
@@ -12,6 +12,12 @@ namespace Game.Managers
 
         public float transitionTime;
         [SerializeField] private Animator transitionAnimator;
+
+        private void OnLevelWasLoaded(int level)
+        {
+            if (level != 0)
+                TimeManager.Instance.Resume();
+        }
 
         public void LoadScene(Scenes scene)
         {
@@ -23,10 +29,17 @@ namespace Game.Managers
         public void LoadRandomGameScene()
         {
             int sc;
-            do
+            while (true)
             {
                 sc = Random.Range(1, System.Enum.GetValues(typeof(Scenes)).Length);
-            } while (sc == currentScene);
+
+                // TODO: uncomment this when I have more minigames working
+                //if (sc == currentScene)
+                //    continue;
+
+                if (MinigamesManager.Instance.CheckMinigamePurchased(sc))
+                    break;
+            }
 
             currentScene = sc;
             StartCoroutine(SceneTransition(sc));

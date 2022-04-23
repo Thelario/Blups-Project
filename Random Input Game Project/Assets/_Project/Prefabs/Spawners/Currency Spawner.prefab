@@ -43,4 +43,62 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aca7fb1437c90ab4e93ff4d8ad818cf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinPrefab: {fileID: 328278380335548988, guid: 403c77f29f8a62949bfaabac92da1fd5, type: 3}
+  timeBetweenObjects: 2
+  waypoints:
+  - spawnPoints:
+    - {x: -10, y: -4, z: 0}
+    - {x: -10, y: -3, z: 0}
+    - {x: -10, y: -2, z: 0}
+    - {x: -10, y: -1, z: 0}
+    - {x: -10, y: 0, z: 0}
+    - {x: -10, y: 1, z: 0}
+    - {x: -10, y: 2, z: 0}
+    - {x: -10, y: 3, z: 0}
+    - {x: -10, y: 4, z: 0}
+  - spawnPoints:
+    - {x: 10, y: -4, z: 0}
+    - {x: 10, y: -3, z: 0}
+    - {x: 10, y: -2, z: 0}
+    - {x: 10, y: -1, z: 0}
+    - {x: 10, y: 0, z: 0}
+    - {x: 10, y: 1, z: 0}
+    - {x: 10, y: 2, z: 0}
+    - {x: 10, y: 3, z: 0}
+    - {x: 10, y: 4, z: 0}
+  - spawnPoints:
+    - {x: 8, y: -6, z: 0}
+    - {x: 7, y: -6, z: 0}
+    - {x: 6, y: -6, z: 0}
+    - {x: 5, y: -6, z: 0}
+    - {x: 4, y: -6, z: 0}
+    - {x: 3, y: -6, z: 0}
+    - {x: 2, y: -6, z: 0}
+    - {x: 1, y: -6, z: 0}
+    - {x: 0, y: -6, z: 0}
+    - {x: -1, y: -6, z: 0}
+    - {x: -2, y: -6, z: 0}
+    - {x: -3, y: -6, z: 0}
+    - {x: -4, y: -6, z: 0}
+    - {x: -5, y: -6, z: 0}
+    - {x: -6, y: -6, z: 0}
+    - {x: -7, y: -6, z: 0}
+    - {x: -8, y: -6, z: 0}
+  - spawnPoints:
+    - {x: 8, y: 6, z: 0}
+    - {x: 7, y: 6, z: 0}
+    - {x: 6, y: 6, z: 0}
+    - {x: 5, y: 6, z: 0}
+    - {x: 4, y: 6, z: 0}
+    - {x: 3, y: 6, z: 0}
+    - {x: 2, y: 6, z: 0}
+    - {x: 1, y: 6, z: 0}
+    - {x: 0, y: 6, z: 0}
+    - {x: -1, y: 6, z: 0}
+    - {x: -2, y: 6, z: 0}
+    - {x: -3, y: 6, z: 0}
+    - {x: -4, y: 6, z: 0}
+    - {x: -5, y: 6, z: 0}
+    - {x: -6, y: 6, z: 0}
+    - {x: -7, y: 6, z: 0}
+    - {x: -8, y: 6, z: 0}
+  coinPrefab: {fileID: 1681207394410143683, guid: c4718536d31cc7d40b41d3f367fbea39, type: 3}

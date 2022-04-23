@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Game.Managers
 {
     public enum Difficulty { Easy, Medium, Hard }
@@ -8,54 +10,93 @@ namespace Game.Managers
         public static event DifficultyChange OnDifficultyChange;
         
         public Difficulty currentDifficulty;
+        [SerializeField] private Animator animator;
+        [SerializeField] private string easyToMedium;
+        [SerializeField] private string mediumToEasy;
+        [SerializeField] private string mediumToHard;
+        [SerializeField] private string hardToMedium;
 
         private int _succesess = 0;
+        private int _mistakes = 0;
 
-        private readonly int _easyLimit = 5;
-        private readonly int _mediumLimit = 15;
-
-        public void PlayerMistake(int value)
+        public void PlayerMistake()
         {
-            if (_succesess <= 0)
+            _mistakes--;
+            _succesess = 0;
+
+            if (currentDifficulty == Difficulty.Easy)
                 return;
 
-            if (_succesess > _mediumLimit && _succesess - value < _mediumLimit)
+            if (currentDifficulty == Difficulty.Hard)
             {
-                ChangeDifficulty(Difficulty.Medium);
+                if (_mistakes == 0)
+                {
+                    ChangeDifficulty(Difficulty.Medium);
+                    _mistakes = 3;
+                }
             }
-            else if (_succesess > _easyLimit && _succesess - value < _easyLimit)
+            else if (currentDifficulty == Difficulty.Medium)
             {
-                ChangeDifficulty(Difficulty.Easy);
+                if (_mistakes == 0)
+                    ChangeDifficulty(Difficulty.Easy);
             }
-
-            _succesess -= value;
-            if (_succesess < 0) 
-                _succesess = 0;
         }
 
-        public void PlayerSuccess(int value)
+        public void PlayerSuccess()
         {
-            if (_succesess >= 20)
+            _succesess++;
+            _mistakes = Mathf.Clamp(++_mistakes, 0, 3);
+
+            if (currentDifficulty == Difficulty.Hard)
                 return;
 
-            if (_succesess < _easyLimit && _succesess + value >= _easyLimit)
+            if (currentDifficulty == Difficulty.Easy)
             {
-                ChangeDifficulty(Difficulty.Medium);
-                
+                if (_succesess == 3)
+                {
+                    ChangeDifficulty(Difficulty.Medium);
+                    _succesess = 0;
+                    _mistakes = 3;
+                }
             }
-            else if (_succesess < _mediumLimit && _succesess + value >= _mediumLimit)
+            else if (currentDifficulty == Difficulty.Medium)
             {
-                ChangeDifficulty(Difficulty.Hard);
+                if (_succesess == 5)
+                {
+                    ChangeDifficulty(Difficulty.Hard);
+                    _mistakes = 3;
+                }
             }
-
-            _succesess += value;
-            if (_succesess > 20)
-                _succesess = 20;
         }
 
         private void ChangeDifficulty(Difficulty difficulty)
         {
-            print("Changing Difficulty to " + difficulty);
+            switch (difficulty)
+            {
+                case Difficulty.Easy:
+                    animator.Play(mediumToEasy);
+                    SoundManager.Instance.PlaySound(SoundType.PlayerMistake);
+                    break;
+                case Difficulty.Medium:
+                    if (currentDifficulty == Difficulty.Easy)
+                    {
+                        animator.Play(easyToMedium);
+                        TimeManager.Instance.SlowTime(2f);
+                        SoundManager.Instance.PlaySound(SoundType.PlayerSuccess);
+                    }
+                    else
+                    {
+                        SoundManager.Instance.PlaySound(SoundType.PlayerMistake);
+                        animator.Play(hardToMedium);
+                    }
+                    break;
+                case Difficulty.Hard:
+                    animator.Play(mediumToHard);
+                    TimeManager.Instance.SlowTime(2f);
+                    SoundManager.Instance.PlaySound(SoundType.PlayerSuccess);
+                    break;
+            }
+
             currentDifficulty = difficulty;
             OnDifficultyChange?.Invoke();
         }

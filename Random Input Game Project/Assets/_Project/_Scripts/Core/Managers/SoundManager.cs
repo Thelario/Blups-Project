@@ -10,6 +10,7 @@ namespace Game.Managers
         private Dictionary<SoundType, AudioClip> audioClipDictionary;
 
         [SerializeField] private float volume; // Volume of SFX
+        [SerializeField] private float pitch; // Pitch of SFX
 
         private AudioSource source; // Private reference of the audioSource where we are going to play our SFX
 
@@ -38,11 +39,12 @@ namespace Game.Managers
 
         public void PlaySound(SoundType st)
         {
-            source.PlayOneShot(SearchSound(st), volume * volume);
-
             if (CanPlaySound(st))
             {
-                source.PlayOneShot(SearchSound(st), volume * volume);
+                float v = Random.Range(volume * volume - 0.1f, volume * volume + 0.1f);
+                float p = Random.Range(pitch - 0.1f, pitch + 0.1f);
+                source.pitch = p;
+                source.PlayOneShot(SearchSound(st), v);
             }
         }
 
@@ -50,7 +52,10 @@ namespace Game.Managers
         {
             if (CanPlaySound(st))
             {
-                source.PlayOneShot(SearchSound(st), volume * newVolume);
+                float v = Random.Range(volume * newVolume - 0.1f, volume * newVolume + 0.1f);
+                float p = Random.Range(pitch - 0.1f, pitch + 0.1f);
+                source.pitch = p;
+                source.PlayOneShot(SearchSound(st), v);
             }
         }
 
@@ -64,7 +69,7 @@ namespace Game.Managers
                     if (soundTimerDictionary.ContainsKey(sound))
                     {
                         float lastTimePlayed = soundTimerDictionary[sound];
-                        float playerMoveTimerMax = .475f;
+                        float playerMoveTimerMax = .3f;
                         if (lastTimePlayed + playerMoveTimerMax < Time.time)
                         {
                             soundTimerDictionary[sound] = Time.time;
@@ -82,17 +87,6 @@ namespace Game.Managers
         {
             audioClipDictionary.TryGetValue(st, out AudioClip outP);
             return outP;
-
-            /*
-            foreach (SoundAudioClip sac in soundAudioClipArray)
-            {
-                if (sac.sound == st)
-                    return sac.audioClip;
-            }
-
-            Debug.LogError("Sound Not Found");
-            return null;
-            */
         }
     }
 
@@ -115,6 +109,8 @@ namespace Game.Managers
         Bomb,
         Laser,
         Slash,
-        Danger
+        Danger,
+        PlayerSuccess,
+        PlayerMistake
     }
 }

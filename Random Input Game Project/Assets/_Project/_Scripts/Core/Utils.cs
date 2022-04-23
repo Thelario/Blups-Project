@@ -62,9 +62,6 @@ namespace Game
         /// </summary>
         public static Color GetRandomColor()
         {
-            // COLORS THAT I LOVE:
-            // new Color(Random.Range(0f, 1f), .5f, .5f);
-
             return new Color(Random.Range(0f, 1f), .5f, .5f);
         }
     }

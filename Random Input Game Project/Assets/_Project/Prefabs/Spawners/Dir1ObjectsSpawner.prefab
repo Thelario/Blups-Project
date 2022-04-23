@@ -43,67 +43,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 337948739d6397649814fa9a532136d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenObstaclesEasy: 0.3
-  timeBetweenObstaclesMedium: 0.2
-  timeBetweenObstaclesHard: 0.1
+  timeBetweenObstaclesEasy: 0.6
+  timeBetweenObstaclesMedium: 0.4
+  timeBetweenObstaclesHard: 0.4
   obstaclesPrefabs:
   - {fileID: 4950815767151996467, guid: 14f76f2ba76b09042ae0466d1bc1baf1, type: 3}
-  - {fileID: 3446047844694170310, guid: 5b07c938f0ae48d4d95baff578db6dd0, type: 3}
   - {fileID: 1101157184721556679, guid: 75d937f3db0670b42addc92c58ea5651, type: 3}
   waypoints:
   - spawnPoints:
-    - {x: -10, y: -4, z: 0}
-    - {x: -10, y: -3, z: 0}
-    - {x: -10, y: -2, z: 0}
-    - {x: -10, y: -1, z: 0}
-    - {x: -10, y: 0, z: 0}
-    - {x: -10, y: 1, z: 0}
-    - {x: -10, y: 2, z: 0}
-    - {x: -10, y: 3, z: 0}
-    - {x: -10, y: 4, z: 0}
+    - {x: -10, y: -3.75, z: 0}
+    - {x: -10, y: -1.25, z: 0}
+    - {x: -10, y: 1.25, z: 0}
+    - {x: -10, y: 3.75, z: 0}
   - spawnPoints:
-    - {x: 10, y: -4, z: 0}
-    - {x: 10, y: -3, z: 0}
-    - {x: 10, y: -2, z: 0}
-    - {x: 10, y: -1, z: 0}
-    - {x: 10, y: 0, z: 0}
-    - {x: 10, y: 1, z: 0}
-    - {x: 10, y: 2, z: 0}
-    - {x: 10, y: 3, z: 0}
-    - {x: 10, y: 4, z: 0}
+    - {x: 10, y: -3.75, z: 0}
+    - {x: 10, y: -1.25, z: 0}
+    - {x: 10, y: 1.25, z: 0}
+    - {x: 10, y: 3.75, z: 0}
   - spawnPoints:
-    - {x: 8, y: -6, z: 0}
-    - {x: 7, y: -6, z: 0}
-    - {x: 6, y: -6, z: 0}
+    - {x: 7.5, y: -6, z: 0}
     - {x: 5, y: -6, z: 0}
-    - {x: 4, y: -6, z: 0}
-    - {x: 3, y: -6, z: 0}
-    - {x: 2, y: -6, z: 0}
-    - {x: 1, y: -6, z: 0}
+    - {x: 2.5, y: -6, z: 0}
     - {x: 0, y: -6, z: 0}
-    - {x: -1, y: -6, z: 0}
-    - {x: -2, y: -6, z: 0}
-    - {x: -3, y: -6, z: 0}
-    - {x: -4, y: -6, z: 0}
+    - {x: -2.5, y: -6, z: 0}
     - {x: -5, y: -6, z: 0}
-    - {x: -6, y: -6, z: 0}
-    - {x: -7, y: -6, z: 0}
-    - {x: -8, y: -6, z: 0}
+    - {x: -7.5, y: -6, z: 0}
   - spawnPoints:
-    - {x: 8, y: 6, z: 0}
-    - {x: 7, y: 6, z: 0}
-    - {x: 6, y: 6, z: 0}
+    - {x: 7.5, y: 6, z: 0}
     - {x: 5, y: 6, z: 0}
-    - {x: 4, y: 6, z: 0}
-    - {x: 3, y: 6, z: 0}
-    - {x: 2, y: 6, z: 0}
-    - {x: 1, y: 6, z: 0}
+    - {x: 2.5, y: 6, z: 0}
     - {x: 0, y: 6, z: 0}
-    - {x: -1, y: 6, z: 0}
-    - {x: -2, y: 6, z: 0}
-    - {x: -3, y: 6, z: 0}
-    - {x: -4, y: 6, z: 0}
+    - {x: -2.5, y: 6, z: 0}
     - {x: -5, y: 6, z: 0}
-    - {x: -6, y: 6, z: 0}
-    - {x: -7, y: 6, z: 0}
-    - {x: -8, y: 6, z: 0}
+    - {x: -7.5, y: 6, z: 0}

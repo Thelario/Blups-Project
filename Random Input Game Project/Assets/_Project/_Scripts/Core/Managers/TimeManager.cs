@@ -30,7 +30,9 @@ namespace Game.Managers
         {
             Time.timeScale = 0.25f;
             yield return new WaitForSecondsRealtime(slowTime);
-            Time.timeScale = 1f;
+
+            if (Time.timeScale > 0f)
+                Time.timeScale = 1f;
         }
     }
 }

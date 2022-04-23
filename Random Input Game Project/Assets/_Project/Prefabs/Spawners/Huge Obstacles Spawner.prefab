@@ -47,7 +47,6 @@ MonoBehaviour:
   timeBetweenObstaclesMedium: 0
   timeBetweenObstaclesHard: 0
   obstaclesPrefabs:
-  - {fileID: 1269634988937145150, guid: cebdf4238741c6f458d81a70a83d9aca, type: 3}
   - {fileID: 2077147848565026622, guid: a10809088c755a24588d512dafd0b99f, type: 3}
   waypoints:
   - spawnPoints:

@@ -93,6 +93,9 @@ namespace Game.Managers
 
         public Color GetRandomColor()
         {
+            if (currentPalette.colors.colors.Length == 0)
+                return defaultPalette.colors.colors[Random.Range(0, currentPalette.colors.colors.Length)];
+
             return currentPalette.colors.colors[Random.Range(0, currentPalette.colors.colors.Length)];
         }
 
