@@ -8,6 +8,8 @@ namespace Game.Entities
     public class Laser : DestroyableEntity
     {
         [SerializeField] private SpriteRenderer spriteRenderer;
+        [SerializeField] private SpriteRenderer spriteRendererLeft;
+        [SerializeField] private SpriteRenderer spriteRendererRight;
         [SerializeField] private ParticleSystem particlesLeft;
         [SerializeField] private ParticleSystem particlesRight;
 
@@ -23,6 +25,8 @@ namespace Game.Entities
         {
             _color = color;
             spriteRenderer.color = _color;
+            spriteRendererLeft.color = new Color(Mathf.Clamp01(_color.r - 0.3f), Mathf.Clamp01(_color.g - 0.3f), Mathf.Clamp01(_color.b - 0.3f));
+            spriteRendererRight.color = new Color(Mathf.Clamp01(_color.r - 0.3f), Mathf.Clamp01(_color.g - 0.3f), Mathf.Clamp01(_color.b - 0.3f));
             particlesLeft.startColor = _color;
             particlesRight.startColor = _color;
         }

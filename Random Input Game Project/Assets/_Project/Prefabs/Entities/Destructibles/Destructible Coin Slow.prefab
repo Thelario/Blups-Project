@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1681207394410143683}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 1.25, y: 1.25, z: 1}
   m_Children:
   - {fileID: 1681207394423147034}
   - {fileID: 1737476414634713758}
@@ -65,9 +65,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedStats:
     moveSpeed: 0
-    easyMoveSpeed: 500
-    mediumMoveSpeed: 750
-    hardMoveSpeed: 1000
+    easyMoveSpeed: 600
+    mediumMoveSpeed: 600
+    hardMoveSpeed: 600
     changeSpeedAccordingToDifficulty: 1
 --- !u!50 &983287997287408976
 Rigidbody2D:
@@ -161,8 +161,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 4587662494353508903, guid: d74679d354fab564e89e4991c4e01225, type: 3}
+  m_SortingOrder: -3
+  m_Sprite: {fileID: -2931209148745530396, guid: d74679d354fab564e89e4991c4e01225, type: 3}
   m_Color: {r: 1, g: 0.7760123, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4970,7 +4970,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -3
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0

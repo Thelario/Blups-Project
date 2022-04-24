@@ -101,4 +101,6 @@ MonoBehaviour:
     - {x: -6, y: 6, z: 0}
     - {x: -7, y: 6, z: 0}
     - {x: -8, y: 6, z: 0}
+  spawnOnlySides: 1
+  spawnVertically: 1
   coinPrefab: {fileID: 1681207394410143683, guid: c4718536d31cc7d40b41d3f367fbea39, type: 3}

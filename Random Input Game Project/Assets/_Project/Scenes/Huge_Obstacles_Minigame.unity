@@ -253,6 +253,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 982192346019180050, guid: a478f6932fc799d4bb381a4a1eb1d7b2, type: 3}
+      propertyPath: spawnVertically
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 982192346019180050, guid: a478f6932fc799d4bb381a4a1eb1d7b2, type: 3}
       propertyPath: timeBetweenObjects
       value: 2
       objectReference: {fileID: 0}

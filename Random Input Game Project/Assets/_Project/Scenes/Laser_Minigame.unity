@@ -205,7 +205,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &652434067
 MonoBehaviour:
@@ -365,9 +365,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Currency Spawner
       objectReference: {fileID: 0}
+    - target: {fileID: 982192346019180050, guid: a478f6932fc799d4bb381a4a1eb1d7b2, type: 3}
+      propertyPath: coinPrefab
+      value: 
+      objectReference: {fileID: 1681207394410143683, guid: b4b5dd7f77eb3ef419284a8f41d9c979, type: 3}
     - target: {fileID: 982192346019180051, guid: a478f6932fc799d4bb381a4a1eb1d7b2, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 982192346019180051, guid: a478f6932fc799d4bb381a4a1eb1d7b2, type: 3}
       propertyPath: m_LocalPosition.x

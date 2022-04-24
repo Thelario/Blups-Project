@@ -27,7 +27,6 @@ namespace Game.Entities
         protected void Start()
         {
             StartCoroutine(nameof(SpawnObject));
-            Destroy(gameObject, 3.1f);
         }
 
         protected abstract IEnumerator SpawnObject();

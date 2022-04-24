@@ -33,9 +33,8 @@ namespace Game.Managers
             {
                 sc = Random.Range(1, System.Enum.GetValues(typeof(Scenes)).Length);
 
-                // TODO: uncomment this when I have more minigames working
-                //if (sc == currentScene)
-                //    continue;
+                if (sc == currentScene)
+                    continue;
 
                 if (MinigamesManager.Instance.CheckMinigamePurchased(sc))
                     break;

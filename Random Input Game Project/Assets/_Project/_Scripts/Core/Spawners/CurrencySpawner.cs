@@ -13,6 +13,7 @@ namespace Game.Spawnners
         [Header("Waypoints")]
         [SerializeField] private Waypoints[] waypoints;
         [SerializeField] private bool spawnOnlySides = false;
+        [SerializeField] private bool spawnVertically = false;
 
         [Header("Prefabs")]
         [SerializeField] private GameObject coinPrefab;
@@ -51,7 +52,7 @@ namespace Game.Spawnners
                     timeBetweenObjects = 2f;
                     break;
                 case Difficulty.Hard:
-                    timeBetweenObjects = 1f;
+                    timeBetweenObjects = 1.5f;
                     break;
             }
         }
@@ -77,7 +78,12 @@ namespace Game.Spawnners
             {
                 Direction randomDir;
                 if (spawnOnlySides)
-                    randomDir = (Direction)Random.Range(0, 2);
+                {
+                    if (spawnVertically)
+                        randomDir = (Direction)Random.Range(2, 4);
+                    else
+                        randomDir = (Direction)Random.Range(0, 2);
+                }
                 else
                     randomDir = (Direction)Random.Range(0, 4);
 

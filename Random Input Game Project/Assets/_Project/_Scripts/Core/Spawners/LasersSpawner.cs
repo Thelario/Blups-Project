@@ -78,7 +78,7 @@ namespace Game.Spawnners
             while (true)
             {
                 Vector3 spawnPoint = GetRandomSpawnpoint(Direction.Up);
-                Instantiate(laserIndicatorPrefab, spawnPoint, GetRandomRotation(spawnPoint));
+                Instantiate(laserIndicatorPrefab, spawnPoint, GetRandomRotation());
                 yield return new WaitForSeconds(_timeBetweenLasers);
             }
         }
@@ -107,6 +107,11 @@ namespace Game.Spawnners
                 return Quaternion.Euler(0f, 0f, Random.Range(-45f, 0f));
             else
                 return Quaternion.Euler(0f, 0f, Random.Range(0f, 45f));
+        }
+
+        private Quaternion GetRandomRotation()
+        {
+            return Quaternion.Euler(0f, 0f, Random.Range(-5f, 5f));
         }
 
         private int GetRandomChild(int index)
