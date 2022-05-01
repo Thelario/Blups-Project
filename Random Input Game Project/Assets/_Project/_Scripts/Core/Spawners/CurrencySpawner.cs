@@ -11,7 +11,7 @@ namespace Game.Spawnners
         [SerializeField] private float timeBetweenObjects;
 
         [Header("Waypoints")]
-        [SerializeField] private Waypoints[] waypoints;
+        [SerializeField] private Spawnpoints[] waypoints;
         [SerializeField] private bool spawnOnlySides = false;
         [SerializeField] private bool spawnVertically = false;
 

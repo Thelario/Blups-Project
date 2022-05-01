@@ -45,10 +45,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBetweenObstaclesEasy: 0.6
   timeBetweenObstaclesMedium: 0.4
-  timeBetweenObstaclesHard: 0.4
+  timeBetweenObstaclesHard: 0.3
   obstaclesPrefabs:
   - {fileID: 4950815767151996467, guid: 14f76f2ba76b09042ae0466d1bc1baf1, type: 3}
   - {fileID: 1101157184721556679, guid: 75d937f3db0670b42addc92c58ea5651, type: 3}
+  - {fileID: 3108338471742447447, guid: 0a967d12b7d7f8f47b66932bd54dbeb8, type: 3}
   waypoints:
   - spawnPoints:
     - {x: -10, y: -3.75, z: 0}

@@ -67,7 +67,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Sold
 
-    Out!'
+    Out'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 84a8b91542fe6134b8db4cc6c79a42cd, type: 2}
   m_sharedMaterial: {fileID: 2044563159089249383, guid: 84a8b91542fe6134b8db4cc6c79a42cd, type: 2}

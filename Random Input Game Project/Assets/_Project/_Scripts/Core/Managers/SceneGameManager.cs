@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 namespace Game.Managers
 {
-    public enum Scenes { Starting, Bombs, Dir1Obstacles, Lasers, SizeMatters }
+    public enum Scenes { Starting, Lever, Dir1Obstacles, Lasers, SizeMatters, Sniper, Shield }
 
     public class SceneGameManager : Singleton<SceneGameManager>
     {

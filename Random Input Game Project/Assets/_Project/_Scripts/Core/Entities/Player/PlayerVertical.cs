@@ -3,12 +3,13 @@ using UnityEngine;
 
 namespace Game.Entities
 {
-    public class PlayerVerticalMovementOnly : Player
+    public class PlayerVertical : Player
     {
         [Header("Animation's Names")]
         [SerializeField] private string idle;
         [SerializeField] private string leftDown;
         [SerializeField] private string rightUP;
+        [SerializeField] private bool animateWithThisScript = true;
 
         private Animator _animator;
 
@@ -26,20 +27,28 @@ namespace Game.Entities
             if (_verticalRaw > 0.1f) // Move up
             {
                 SoundManager.Instance.PlaySound(SoundType.PlayerWalk, .5f);
-                _animator.Play(rightUP);
+
+                Animate(rightUP);
             }
             else if (_verticalRaw < -0.1f) // Move down
             {
                 SoundManager.Instance.PlaySound(SoundType.PlayerWalk, .5f);
-                _animator.Play(leftDown);
+
+                Animate(leftDown);
             }
             else
-                _animator.Play(idle);
+                Animate(idle);
         }
 
         protected override void Move()
         {
             _rb2D.velocity = Time.fixedDeltaTime * moveSpeed * new Vector2(0f, _verticalRaw).normalized;
+        }
+
+        private void Animate(string animation)
+        {
+            if (animateWithThisScript)
+                _animator.Play(animation);
         }
     }
 }

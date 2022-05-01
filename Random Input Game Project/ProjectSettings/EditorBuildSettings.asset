@@ -12,8 +12,8 @@ EditorBuildSettings:
     path: Assets/_Project/Scenes/Starting_Scene.unity
     guid: 10ccf2a488671c04aa96066742111c66
   - enabled: 1
-    path: Assets/_Project/Scenes/Bomb_Minigame.unity
-    guid: 2b66bda1f726a5641ac113e95169f3d7
+    path: Assets/_Project/Scenes/Semicircle_Lever_Minigame.unity
+    guid: f5410777798679d488982d3b1b3b2b21
   - enabled: 1
     path: Assets/_Project/Scenes/1DirObstacles_Minigame.unity
     guid: 3895682fea66def46ae222fce9531043
@@ -23,4 +23,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Project/Scenes/Huge_Obstacles_Minigame.unity
     guid: fc730e3181859864a9c1a0686df3f90f
+  - enabled: 1
+    path: Assets/_Project/Scenes/Sniper_Scene.unity
+    guid: bd8556b6a8cbf76438d79840b1bdf77e
+  - enabled: 1
+    path: Assets/_Project/Scenes/Shield_Minigame.unity
+    guid: bc459d7bf5d07084983495d71883402d
   m_configObjects: {}

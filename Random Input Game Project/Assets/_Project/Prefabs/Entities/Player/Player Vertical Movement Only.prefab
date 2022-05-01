@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 8180149023968230783}
   m_Layer: 0
   m_Name: Player Vertical Movement Only
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -191,6 +191,7 @@ MonoBehaviour:
   idle: Player1DirIdle
   leftDown: Player1DirMoveLeft
   rightUP: Player1DirMoveRight
+  animateWithThisScript: 1
 --- !u!1001 &5215430649718445622
 PrefabInstance:
   m_ObjectHideFlags: 0

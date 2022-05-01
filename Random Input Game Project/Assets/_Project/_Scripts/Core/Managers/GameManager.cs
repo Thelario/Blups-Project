@@ -11,6 +11,14 @@ namespace Game.Managers
 
         public bool loopIndefinitely = false;
 
+#if UNITY_ANDROID
+        protected override void Awake()
+        {
+            base.Awake();
+            Screen.sleepTimeout = SleepTimeout.NeverSleep;
+        }
+#endif
+
         public void SetRandomDirection()
         {
             obstaclesCurrentDirection = (Direction)Random.Range(0, 4);

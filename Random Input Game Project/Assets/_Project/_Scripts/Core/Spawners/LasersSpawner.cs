@@ -14,7 +14,7 @@ namespace Game.Spawnners
         [SerializeField] private float timeBetweenLasersMedium;
         [SerializeField] private float timeBetweenLasersHard;
 
-        [SerializeField] private Waypoints[] waypoints;
+        [SerializeField] private Spawnpoints[] waypoints;
 
         private int _prevChild = 0;
         private float _timeBetweenLasers;

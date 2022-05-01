@@ -10,7 +10,7 @@ namespace Game.Spawnners
         [SerializeField] private float timeBetweenObjects;
 
         [Header("Waypoints")]
-        [SerializeField] private Waypoints[] waypoints;
+        [SerializeField] private Spawnpoints[] waypoints;
 
         [Header("Prefabs")]
         [SerializeField] private GameObject[] obstaclesPrefabs;

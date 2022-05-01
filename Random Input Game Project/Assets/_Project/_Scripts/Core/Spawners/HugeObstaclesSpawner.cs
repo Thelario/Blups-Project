@@ -14,7 +14,7 @@ namespace Game.Spawnners
 
         [Header("References")]
         [SerializeField] private GameObject[] obstaclesPrefabs;
-        [SerializeField] private Waypoints[] waypoints;
+        [SerializeField] private Spawnpoints[] waypoints;
         [SerializeField] private ExclamationManager exclamationManager;
 
         private int _prevChild = 0;

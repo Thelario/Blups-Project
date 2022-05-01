@@ -39,7 +39,7 @@ namespace Game.Entities
 
 #if UNITY_ANDROID
 
-            _moveSpeed = 0.1f;
+            _moveSpeed = 1f;
 
 #endif
 

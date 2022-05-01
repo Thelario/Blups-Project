@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Game.Entities
 {
-    #pragma warning disable CS0618 // El tipo o el miembro están obsoletos
+    #pragma warning disable CS0618 // El tipo o el miembro estan obsoletos
 
     public class Bomb : DestroyableEntity
     {

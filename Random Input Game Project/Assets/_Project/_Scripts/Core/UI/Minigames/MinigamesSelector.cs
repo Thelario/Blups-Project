@@ -1,6 +1,5 @@
 using UnityEngine;
 using Game.Managers;
-using TMPro;
 
 namespace Game.UI
 {
@@ -15,7 +14,7 @@ namespace Game.UI
             CreateMinigameButtons();
         }
 
-        public void CreateMinigameButtons()
+        private void CreateMinigameButtons()
         {
             DestroyMinigameButtons();
 
@@ -35,7 +34,7 @@ namespace Game.UI
             }
         }
 
-        public void DestroyMinigameButtons()
+        private void DestroyMinigameButtons()
         {
             foreach (Transform t in minigamesParent)
                 Destroy(t.gameObject);

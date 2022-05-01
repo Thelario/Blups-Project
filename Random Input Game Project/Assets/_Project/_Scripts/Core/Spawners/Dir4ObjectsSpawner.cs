@@ -8,7 +8,7 @@ public enum Direction { Left, Right, Up, Down }
 namespace Game.Spawnners
 {
     [System.Serializable]
-    public struct Waypoints
+    public struct Spawnpoints
     {
         public Vector3[] spawnPoints;
     }
@@ -22,7 +22,7 @@ namespace Game.Spawnners
 
         [Header("References")]
         [SerializeField] private GameObject[] obstaclesPrefabs;
-        [SerializeField] private Waypoints[] waypoints;
+        [SerializeField] private Spawnpoints[] waypoints;
 
         private int _prevChild = 0;
         private float _timeBetweenObstacles;
@@ -75,8 +75,6 @@ namespace Game.Spawnners
             int n = Random.Range(0, 100);
 
             if (n > 80)
-                return obstaclesPrefabs[2];
-            else if (n > 40)
                 return obstaclesPrefabs[1];
             else
                 return obstaclesPrefabs[0];
@@ -86,14 +84,20 @@ namespace Game.Spawnners
         {
             while (true)
             {
-                Direction randomDir = (Direction)Random.Range(0, 4);
-                GameObject g = Instantiate(GetRandomPrefab(), GetRandomSpawnpoint(randomDir), Quaternion.identity);
-               
-                if (g.TryGetComponent(out IDirectable id))
-                    id.SetDirection(randomDir);
+                SpawnSingleObject();
+                SpawnSingleObject();
 
                 yield return new WaitForSeconds(_timeBetweenObstacles);
             }
+        }
+
+        private void SpawnSingleObject()
+        {
+            Direction randomDir = (Direction)Random.Range(0, 4);
+            GameObject g = Instantiate(GetRandomPrefab(), GetRandomSpawnpoint(randomDir), Quaternion.identity);
+
+            if (g.TryGetComponent(out IDirectable id))
+                id.SetDirection(randomDir);
         }
 
         private void SetSpawnTrue()

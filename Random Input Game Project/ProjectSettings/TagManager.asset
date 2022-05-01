@@ -7,6 +7,8 @@ TagManager:
   - Obstacle
   - Coin
   - Secret
+  - Bullet
+  - PlayerShield
   layers:
   - Default
   - TransparentFX

@@ -1,6 +1,5 @@
 ﻿using Game.Managers;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Game.UI
@@ -9,7 +8,7 @@ namespace Game.UI
     /// CanvasSwitcher must be added to each button that will redirect to another panel (ex. MainMenu -> GameMenu through button Play).
     /// </summary>
     [RequireComponent(typeof(Button))]
-    public class CanvasSwitcher : MonoBehaviour, IPointerEnterHandler
+    public class CanvasSwitcher : MonoBehaviour
     {
         public CanvasType desiredCanvasType;
         public bool loadNewScene = false;
@@ -24,8 +23,6 @@ namespace Game.UI
 
         private void OnButtonClicked()
         {
-            SoundManager.Instance.PlaySound(SoundType.ButtonClick);
-
             switch (desiredCanvasType)
             {
                 case CanvasType.GameMenu:
@@ -46,13 +43,6 @@ namespace Game.UI
                     CanvasManager.Instance.SwitchCanvas(desiredCanvasType);
                     break;
             }
-        }
-
-        public void OnPointerEnter(PointerEventData eventData)
-        {
-#if UNITY_STANDALONE
-            SoundManager.Instance.PlaySound(SoundType.MouseOverButton);
-#endif
         }
     }
 }

@@ -46,18 +46,26 @@ MonoBehaviour:
   dontDestroyOnLoad: 1
   minigames:
   - minigame: 1
-    purchased: 0
+    purchased: 1
     price: 25
-    name: Bombs
+    name: Lever
   - minigame: 2
     purchased: 1
     price: 25
     name: One Dir
   - minigame: 3
-    purchased: 0
+    purchased: 1
     price: 25
     name: Lasers
   - minigame: 4
     purchased: 1
     price: 25
     name: Size Matter
+  - minigame: 5
+    purchased: 1
+    price: 25
+    name: Sniper
+  - minigame: 6
+    purchased: 1
+    price: 25
+    name: Shield

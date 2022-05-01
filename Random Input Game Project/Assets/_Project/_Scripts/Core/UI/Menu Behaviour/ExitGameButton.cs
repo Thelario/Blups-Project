@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Button))]
-public class ExitGameButton : MonoBehaviour, IPointerEnterHandler
+public class ExitGameButton : MonoBehaviour
 {
     private Button _button;
 
@@ -25,15 +25,6 @@ public class ExitGameButton : MonoBehaviour, IPointerEnterHandler
 
     public void OnButtonClicked()
     {
-        SoundManager.Instance.PlaySound(SoundType.ButtonClick);
-
         Exit();
-    }
-
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-#if UNITY_STANDALONE
-            SoundManager.Instance.PlaySound(SoundType.MouseOverButton);
-#endif
     }
 }

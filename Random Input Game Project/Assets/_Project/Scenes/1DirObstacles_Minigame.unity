@@ -39498,10 +39498,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1DirObjectsSpawner
       objectReference: {fileID: 0}
-    - target: {fileID: 5159801275042438636, guid: d738681e043f7604ab4e8ba4f05777de, type: 3}
-      propertyPath: timeBetweenObstaclesHard
-      value: 0.3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d738681e043f7604ab4e8ba4f05777de, type: 3}
 --- !u!1001 &7896945200034831766

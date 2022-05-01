@@ -8,6 +8,7 @@ namespace Game.UI
         [SerializeField] private GameObject foundSecretPrefab;
         [SerializeField] private GameObject notFoundSecretPrefab;
         [SerializeField] private Transform secretsParent;
+        [SerializeField] private SecretsPanel secretsPanel;
 
         private void OnEnable()
         {
@@ -32,6 +33,8 @@ namespace Game.UI
                 GameObject secret = Instantiate(foundSecretPrefab, secretsParent);
                 SecretButtonUI sbui = secret.GetComponent<SecretButtonUI>();
                 sbui.text.text = s.name;
+                sbui.ruleText = s.content;
+                sbui.secretsMenu = this;
             }
         }
 
@@ -41,6 +44,11 @@ namespace Game.UI
             {
                 Destroy(t.gameObject);
             }
+        }
+
+        public void OpenRule(string ruleText)
+        {
+            secretsPanel.OpenPanel(ruleText);
         }
     }
 }

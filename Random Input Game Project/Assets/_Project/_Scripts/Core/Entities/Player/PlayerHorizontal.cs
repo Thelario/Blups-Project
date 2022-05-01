@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Game.Entities
 {
-    public class PlayerHorizontalMovementOnly : Player
+    public class PlayerHorizontal : Player
     {
         [Header("Animation's Names")]
         [SerializeField] private string idle;
@@ -22,7 +22,6 @@ namespace Game.Entities
         protected override void GetMoveInput()
         {
             _horizontalRaw = InputManager.Instance.GetHorizontalInput();
-            print(_horizontalRaw);
 
             if (_horizontalRaw > 0.1f) // Move right
             {

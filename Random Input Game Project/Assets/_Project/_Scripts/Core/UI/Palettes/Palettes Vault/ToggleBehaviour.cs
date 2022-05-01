@@ -11,18 +11,18 @@ namespace Game.UI
         [SerializeField] private Color selectedColor;
         [SerializeField] private Color notSelectedColor;
 
-        private Toggle toggle;
+        private Toggle _toggle;
 
         private void Awake()
         {
-            toggle = GetComponent<Toggle>();
-            toggle.onValueChanged.AddListener(OnToggleValueChanged);
+            _toggle = GetComponent<Toggle>();
+            _toggle.onValueChanged.AddListener(OnToggleValueChanged);
         }
 
         private void OnToggleValueChanged(bool isOn)
         {
             SoundManager.Instance.PlaySound(SoundType.ButtonClick);
-            ColorBlock cb = toggle.colors;
+            ColorBlock cb = _toggle.colors;
 
             if (isOn)
             {
@@ -39,12 +39,12 @@ namespace Game.UI
                 cb.pressedColor = notSelectedColor;
             }
 
-            toggle.colors = cb;
+            _toggle.colors = cb;
         }
 
         public void ChangeToggleValue(bool isOn)
         {
-            toggle.isOn = isOn;
+            _toggle.isOn = isOn;
         }
 
         public void OnPointerEnter(PointerEventData eventData)

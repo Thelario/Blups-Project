@@ -1,10 +1,17 @@
 ﻿using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
 
 namespace Game.UI
 {
     public class SecretButtonUI : MonoBehaviour
     {
-        public TMP_Text text;
+        public string ruleText;
+        public Text text;
+        public SecretsMenu secretsMenu;
+
+        public void OnButtonClicked()
+        {
+            secretsMenu.OpenRule(ruleText);
+        }
     }
 }
