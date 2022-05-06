@@ -37,6 +37,10 @@ namespace Game.Entities
             if (collision.CompareTag("PlayerShield"))
             {
                 SoundManager.Instance.PlaySound(SoundType.PlayerObstacleHit);
+                
+                deathParticles.startColor = spRenderer.color;
+                Instantiate(deathParticles, transform.position, Quaternion.identity);
+                
                 DestroyYourself(0f);
             }
             else if (collision.CompareTag("Player"))

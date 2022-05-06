@@ -8,7 +8,8 @@ namespace Game.UI
     public class PurchasePalettePanel : MonoBehaviour
     {
         [SerializeField] private TMP_Text text;
-        [SerializeField] private Image[] colors;
+        [SerializeField] private Image colorImage;
+        [SerializeField] private Image frame;
         [SerializeField] private PalettesShop palettesShop;
         [SerializeField] private GameObject parentPanel;
         [SerializeField] private GameObject panelBackground;
@@ -25,9 +26,8 @@ namespace Game.UI
         {
             _currentPalette = colorPalette;
             text.text = colorPalette.price.ToString();
-
-            for (int i = 0; i < 4; i++)
-                colors[i].color = colorPalette.colors.colors[i];
+            colorImage.color = colorPalette.color;
+            frame.color = colorPalette.color;
         }
 
         public void OpenPanel(ColorPalette colorPalette)

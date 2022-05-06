@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game.Managers
 {
@@ -14,8 +15,9 @@ namespace Game.Managers
 
     public class SecretsManager : Singleton<SecretsManager>
     {
-        public List<Secret> secrets;
-
+        [Header("Secrets Stuff")]
+        [FormerlySerializedAs("secrets")] public List<Secret> availableSecrets;
+        public List<Secret> notAvailableSecrets;
         public bool keepSpawningSecrets = true;
 
         [Header("Secret Picked Animation")] 
@@ -33,7 +35,7 @@ namespace Game.Managers
             
             // We first retrieve all the not found secrets
             List<Secret> notFoundSecrets = new List<Secret>();
-            foreach (Secret s in secrets)
+            foreach (Secret s in availableSecrets)
             {
                 if (s.found)
                     continue;
@@ -51,7 +53,7 @@ namespace Game.Managers
         {
             // We count the number of secrets that are still not found
             int secretsNotFound = 0;
-            foreach (Secret s in secrets)
+            foreach (Secret s in availableSecrets)
             {
                 if (s.found)
                     continue;

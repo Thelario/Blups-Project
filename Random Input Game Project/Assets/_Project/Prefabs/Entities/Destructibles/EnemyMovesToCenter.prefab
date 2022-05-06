@@ -4976,7 +4976,7 @@ MonoBehaviour:
   thisTransform: {fileID: 9010637350667167223}
   spRenderer: {fileID: 9010637350540710490}
   trailParticles: {fileID: 8101955470035041001}
-  deathParticles: {fileID: 8101955470035041001}
+  deathParticles: {fileID: 2545714239033304248, guid: b0da784d386f26f47a97ba238810e013, type: 3}
 --- !u!95 &9010637350667167218
 Animator:
   serializedVersion: 3

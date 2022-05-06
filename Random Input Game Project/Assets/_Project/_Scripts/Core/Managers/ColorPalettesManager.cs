@@ -6,10 +6,10 @@ namespace Game.Managers
     [System.Serializable]
     public class ColorPalette
     {
-        [HideInInspector] public int price = 25;
-        public bool purchased = false;
+        public int price = 25;
+        public bool purchased;
         public bool selected = true;
-        public Colors colors;
+        public Color color;
 
         public void Buy()
         {
@@ -73,14 +73,14 @@ namespace Game.Managers
             return selectedPalettes[Random.Range(0, selectedPalettes.Count)];
         }
 
-        public List<Colors> GetSelectedColors()
+        public List<Color> GetSelectedColors()
         {
-            List<Colors> cs = new List<Colors>();
+            List<Color> cs = new List<Color>();
 
             foreach (ColorPalette cp in colorPalettes)
             {
                 if (cp.selected)
-                    cs.Add(cp.colors);
+                    cs.Add(cp.color);
             }
 
             return cs;
@@ -88,20 +88,10 @@ namespace Game.Managers
 
         public Color GetRandomColor()
         {
-            if (currentPalette.colors.colors.Length == 0)
-                return defaultPalette.colors.colors[Random.Range(0, currentPalette.colors.colors.Length)];
+            if (currentPalette == null)
+                return defaultPalette.color;
 
-            return currentPalette.colors.colors[Random.Range(0, currentPalette.colors.colors.Length)];
-        }
-
-        public Color GetRandomColor(Colors colors)
-        {
-            return colors.colors[Random.Range(0, colors.colors.Length)];
-        }
-
-        public Color GetRandomColor(ColorPalette palette)
-        {
-            return palette.colors.colors[Random.Range(0, palette.colors.colors.Length)];
+            return currentPalette.color;
         }
     }
 }

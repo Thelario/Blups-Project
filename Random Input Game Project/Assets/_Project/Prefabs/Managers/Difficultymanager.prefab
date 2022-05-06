@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &96673477
 RectTransform:
   m_ObjectHideFlags: 0
@@ -48,9 +48,9 @@ Canvas:
   m_GameObject: {fileID: 96673476}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
+  m_PlaneDistance: 1
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -408,6 +408,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dontDestroyOnLoad: 1
   currentDifficulty: 0
+  canvas: {fileID: 96673476}
   animator: {fileID: 215762624}
   easyToMedium: DifficultyEasyMedium
   mediumToEasy: DifficultyMediumEasy

@@ -51,8 +51,8 @@ namespace Game.Entities
 
         public void TakeDamage()
         {
-            deathParticles.startColor = spRenderer.color;
             Vector3 pos = transform.position;
+            deathParticles.startColor = spRenderer.color;
             Instantiate(deathParticles, pos, Quaternion.identity);
             
             GameObject s = Instantiate(GetRandomSpawnable(), pos, Quaternion.identity);

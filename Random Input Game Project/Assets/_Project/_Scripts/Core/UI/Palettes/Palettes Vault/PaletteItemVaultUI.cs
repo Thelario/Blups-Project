@@ -6,7 +6,7 @@ namespace Game.UI
 {
     public class PaletteItemVaultUI : MonoBehaviour
     {
-        public Image[] colors;
+        public Image color;
         [HideInInspector] public ColorPalette colorPalette;
         [SerializeField] private Toggle toggle;
         public ToggleBehaviour toggleBehaviour;

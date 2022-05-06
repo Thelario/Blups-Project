@@ -7,7 +7,7 @@ namespace Game.UI
     [RequireComponent(typeof(Button))]
     public class PaletteItemUI : MonoBehaviour
     {
-        public Image[] colors;
+        public Image color;
         public ColorPalette colorPalette;
         public PalettesShop palettesShop;
 

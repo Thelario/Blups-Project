@@ -8,43 +8,43 @@ public class SceneEditorTool : Editor
     [MenuItem("Developer/Change Scene/Main Menu")]
     public static void MainMenu()
     {
-        EditorSceneManager.OpenScene("Assets/_Project/Scenes/Starting_Scene.unity", OpenSceneMode.Single);
+        EditorSceneManager.OpenScene("Assets/_Project/Scenes/Main Menu.unity", OpenSceneMode.Single);
     }
 
-    [MenuItem("Developer/Change Scene/Lasers")]
+    [MenuItem("Developer/Change Scene/Minigame Lasers")]
     public static void Lasers()
     {
-        EditorSceneManager.OpenScene("Assets/_Project/Scenes/Laser_Minigame.unity", OpenSceneMode.Single);
+        EditorSceneManager.OpenScene("Assets/_Project/Scenes/Minigame Lasers.unity", OpenSceneMode.Single);
     }
 
-    [MenuItem("Developer/Change Scene/Huge Obstacles")]
+    [MenuItem("Developer/Change Scene/Minigame Huge Obstacles")]
     public static void HugeObstacles()
     {
-        EditorSceneManager.OpenScene("Assets/_Project/Scenes/Huge_Obstacles_Minigame.unity", OpenSceneMode.Single);
+        EditorSceneManager.OpenScene("Assets/_Project/Scenes/Minigame Huge Obstacles.unity", OpenSceneMode.Single);
     }
 
-    [MenuItem("Developer/Change Scene/1Dir Obstacles")]
+    [MenuItem("Developer/Change Scene/Minigame One Direction Obstacles")]
     public static void Dir1Obstacles()
     {
-        EditorSceneManager.OpenScene("Assets/_Project/Scenes/1DirObstacles_Minigame.unity", OpenSceneMode.Single);
+        EditorSceneManager.OpenScene("Assets/_Project/Scenes/Minigame One Direction Obstacles.unity", OpenSceneMode.Single);
     }
 
-    [MenuItem("Developer/Change Scene/Semicircle Lever")]
+    [MenuItem("Developer/Change Scene/Minigame Lever")]
     public static void Semicircle()
     {
-        EditorSceneManager.OpenScene("Assets/_Project/Scenes/Semicircle_Lever_Minigame.unity", OpenSceneMode.Single);
+        EditorSceneManager.OpenScene("Assets/_Project/Scenes/Minigame Lever.unity", OpenSceneMode.Single);
     }
 
-    [MenuItem("Developer/Change Scene/Sniper Scene")]
+    [MenuItem("Developer/Change Scene/Minigame Sniper")]
     public static void SniperScene()
     {
-        EditorSceneManager.OpenScene("Assets/_Project/Scenes/Sniper_Scene.unity", OpenSceneMode.Single);
+        EditorSceneManager.OpenScene("Assets/_Project/Scenes/Minigame Sniper.unity", OpenSceneMode.Single);
     }
 
-    [MenuItem("Developer/Change Scene/Shield Minigame")]
-    public static void ShieldScene()
+    [MenuItem("Developer/Change Scene/Minigame Sword")]
+    public static void SwordScene()
     {
-        EditorSceneManager.OpenScene("Assets/_Project/Scenes/Shield_Minigame.unity", OpenSceneMode.Single);
+        EditorSceneManager.OpenScene("Assets/_Project/Scenes/Minigame Sword.unity", OpenSceneMode.Single);
     }
 }
 

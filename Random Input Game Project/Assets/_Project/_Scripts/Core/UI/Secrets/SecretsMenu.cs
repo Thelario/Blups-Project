@@ -22,7 +22,7 @@ namespace Game.UI
 
         public void CreateItems()
         {
-            foreach (Secret s in SecretsManager.Instance.secrets)
+            foreach (Secret s in SecretsManager.Instance.availableSecrets)
             {
                 if (!s.found)
                 {

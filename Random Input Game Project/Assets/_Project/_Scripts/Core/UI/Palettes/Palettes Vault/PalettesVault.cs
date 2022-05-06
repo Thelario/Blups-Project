@@ -31,12 +31,7 @@ namespace Game.UI
                 
                 GameObject palette = Instantiate(unlockedPalettePrefab, palettesParent);
                 PaletteItemVaultUI piui = palette.GetComponent<PaletteItemVaultUI>();
-                for (int i = 0; i < 4; i++)
-                {
-                    piui.colors[i].color = cp.colors.colors[i];
-                    piui.colorPalette = cp;
-                    piui.toggleBehaviour.ChangeToggleValue(cp.selected);
-                }
+                piui.color.color = cp.color;
             }
         }
 

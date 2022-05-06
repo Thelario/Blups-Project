@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace Game.Managers
@@ -10,6 +11,7 @@ namespace Game.Managers
         public static event DifficultyChange OnDifficultyChange;
         
         public Difficulty currentDifficulty;
+        [SerializeField] private GameObject canvas;
         [SerializeField] private Animator animator;
         [SerializeField] private string easyToMedium;
         [SerializeField] private string mediumToEasy;
@@ -74,23 +76,27 @@ namespace Game.Managers
             switch (difficulty)
             {
                 case Difficulty.Easy:
+                    StartCoroutine(nameof(ControlCanvasActivation));
                     animator.Play(mediumToEasy);
                     SoundManager.Instance.PlaySound(SoundType.PlayerMistake);
                     break;
                 case Difficulty.Medium:
                     if (currentDifficulty == Difficulty.Easy)
                     {
+                        StartCoroutine(nameof(ControlCanvasActivation));
                         animator.Play(easyToMedium);
                         TimeManager.Instance.SlowTime(2f);
                         SoundManager.Instance.PlaySound(SoundType.PlayerSuccess);
                     }
                     else
                     {
+                        StartCoroutine(nameof(ControlCanvasActivation));
                         SoundManager.Instance.PlaySound(SoundType.PlayerMistake);
                         animator.Play(hardToMedium);
                     }
                     break;
                 case Difficulty.Hard:
+                    StartCoroutine(nameof(ControlCanvasActivation));
                     animator.Play(mediumToHard);
                     TimeManager.Instance.SlowTime(2f);
                     SoundManager.Instance.PlaySound(SoundType.PlayerSuccess);
@@ -99,6 +105,13 @@ namespace Game.Managers
 
             currentDifficulty = difficulty;
             OnDifficultyChange?.Invoke();
+        }
+
+        private IEnumerator ControlCanvasActivation()
+        {
+            canvas.SetActive(true);
+            yield return new WaitForSecondsRealtime(2f);
+            canvas.SetActive(false);
         }
     }
 }
