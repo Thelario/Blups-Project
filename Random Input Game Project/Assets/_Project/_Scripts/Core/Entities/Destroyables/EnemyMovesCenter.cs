@@ -1,7 +1,7 @@
 using Game.Managers;
 using UnityEngine;
 
-#pragma warning disable CS0618 // El tipo o el miembro están obsoletos
+#pragma warning disable CS0618 // El tipo o el miembro estï¿½n obsoletos
 
 namespace Game.Entities
 {
@@ -36,10 +36,14 @@ namespace Game.Entities
         {
             if (collision.CompareTag("PlayerShield"))
             {
+                SoundManager.Instance.PlaySound(SoundType.PlayerObstacleHit);
                 DestroyYourself(0f);
             }
             else if (collision.CompareTag("Player"))
             {
+                SoundManager.Instance.PlaySound(SoundType.PlayerObstacleHit);
+                TimeManager.Instance.SlowTime(2f);
+                DifficultyManager.Instance.PlayerMistake();
                 DestroyYourself(0f);
             }
         }

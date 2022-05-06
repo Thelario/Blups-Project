@@ -40,7 +40,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6045158108860192553}
   serializedVersion: 7
-  lengthInSec: 1
+  lengthInSec: 0.5
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -115,7 +115,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -865,7 +865,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 10
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -1480,7 +1480,7 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: 8878438454427474353, guid: d74679d354fab564e89e4991c4e01225, type: 3}
+    - sprite: {fileID: 1255147209054266363, guid: 48ad11bb2346aec4ebdd86e3827b2d04, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
@@ -4815,7 +4815,7 @@ GameObject:
   - component: {fileID: 9010637350540710489}
   - component: {fileID: 9010637350540710490}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Dodecaedro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4875,11 +4875,11 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 5237034851868773253, guid: d74679d354fab564e89e4991c4e01225, type: 3}
+  m_Sprite: {fileID: 1255147209054266363, guid: 48ad11bb2346aec4ebdd86e3827b2d04, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
+  m_DrawMode: 1
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
@@ -4896,12 +4896,12 @@ GameObject:
   m_Component:
   - component: {fileID: 9010637350667167223}
   - component: {fileID: 9010637350667167217}
-  - component: {fileID: 9010637350667167216}
+  - component: {fileID: 3961757243012234300}
   - component: {fileID: 9010637350667167219}
   - component: {fileID: 9010637350667167218}
   m_Layer: 0
   m_Name: EnemyMovesToCenter
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4943,8 +4943,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &9010637350667167216
-BoxCollider2D:
+--- !u!58 &3961757243012234300
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4956,19 +4956,9 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.002896674, y: 0.0014483631}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 0.37588406, y: 0.75378066}
-  m_EdgeRadius: 0
+  m_Radius: 0.35
 --- !u!114 &9010637350667167219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4981,7 +4971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2179bb3c42bbc7841af8f9465b6cd248, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 250
+  moveSpeed: 200
   rb2D: {fileID: 9010637350667167217}
   thisTransform: {fileID: 9010637350667167223}
   spRenderer: {fileID: 9010637350540710490}

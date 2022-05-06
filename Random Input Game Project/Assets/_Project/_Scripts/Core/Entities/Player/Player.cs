@@ -8,30 +8,28 @@ namespace Game.Entities
     public abstract class Player : MonoBehaviour
     {
         [Header("Fields")]
-        [SerializeField] protected float moveSpeed;
         [SerializeField] protected float timePassedWhenHit = 2f;
 
-        protected float _horizontal;
-        protected float _vertical;
+        protected float horizontalRaw;
+        protected float verticalRaw;
 
-        protected float _horizontalRaw;
-        protected float _verticalRaw;
-
-        protected bool _invencible;
-
-        protected Rigidbody2D _rb2D;
-        protected Transform _transform;
+        protected Rigidbody2D rb2D;
+        protected Transform thisTransform;
+        
+        private bool _invincible;
 
         protected virtual void Awake()
         {
-            _rb2D = GetComponent<Rigidbody2D>();
-            _transform = transform;
+            rb2D = GetComponent<Rigidbody2D>();
+            thisTransform = transform;
         }
 
-        protected void Update()
+        protected virtual void Update()
         {
+#if UNITY_STANDALONE || UNITY_EDITOR 
             GetPauseInput();
-
+#endif
+            
             GetMoveInput();
         }
 
@@ -39,16 +37,7 @@ namespace Game.Entities
         {
             Move();
         }
-
-        protected void GetPauseInput()
-        {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                CanvasManager.Instance.SwitchCanvas(CanvasType.GamePause);
-                TimeManager.Instance.Pause();
-            }
-        }
-
+        
         protected abstract void GetMoveInput();
 
         protected abstract void Move();
@@ -57,26 +46,37 @@ namespace Game.Entities
         {
             if (collision.CompareTag("Obstacle"))
             {
-                if (_invencible)
+                if (_invincible)
                     return;
 
-                HandleTriggerObstacle(collision);
+                HandleTriggerObstacle();
             }
             else if (collision.CompareTag("Coin"))
             {
                 HandleTriggerCoin(collision);
             }
         }
-
-        protected virtual void HandleTriggerObstacle(Collider2D collision)
+      
+#if UNITY_STANDALONE || UNITY_EDITOR 
+        protected void GetPauseInput()
         {
-            SoundManager.Instance.PlaySound(SoundType.PlyerObstacleHit);
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                CanvasManager.Instance.SwitchCanvas(CanvasType.GamePause);
+                TimeManager.Instance.Pause();
+            }
+        }
+#endif
+
+        protected void HandleTriggerObstacle()
+        {
+            SoundManager.Instance.PlaySound(SoundType.PlayerObstacleHit);
             TimeManager.Instance.SlowTime(timePassedWhenHit);
             StartCoroutine(nameof(MakeInvencible));
             DifficultyManager.Instance.PlayerMistake();
         }
 
-        protected virtual void HandleTriggerCoin(Collider2D collision)
+        protected void HandleTriggerCoin(Collider2D collision)
         {
             SoundManager.Instance.PlaySound(SoundType.Coin);
             ParticlesManager.Instance.CreateParticle(ParticleType.CoinObtained, collision.transform.position);
@@ -88,9 +88,9 @@ namespace Game.Entities
 
         protected IEnumerator MakeInvencible()
         {
-            _invencible = true;
+            _invincible = true;
             yield return new WaitForSecondsRealtime(timePassedWhenHit);
-            _invencible = false;
+            _invincible = false;
         }
     }
 }

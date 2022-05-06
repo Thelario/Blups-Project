@@ -151,7 +151,7 @@ Transform:
   m_GameObject: {fileID: 2077147849528381921}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.55407405, y: 0.55407405, z: 1}
   m_Children: []
   m_Father: {fileID: 2077147848565026621}
   m_RootOrder: 0
@@ -196,12 +196,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -5773027906094412848, guid: d74679d354fab564e89e4991c4e01225, type: 3}
+  m_Sprite: {fileID: -7877738789120566725, guid: 48ad11bb2346aec4ebdd86e3827b2d04, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_DrawMode: 1
+  m_Size: {x: 1, y: 1.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -214,6 +214,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2077147848565026621}
     m_Modifications:
+    - target: {fileID: 4291520950923689984, guid: c18394ff0fbfb3f4c82da33f182625e2, type: 3}
+      propertyPath: SizeModule.curve.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291520950923689984, guid: c18394ff0fbfb3f4c82da33f182625e2, type: 3}
+      propertyPath: ShapeModule.m_Position.z
+      value: -1.25
+      objectReference: {fileID: 0}
     - target: {fileID: 4291520950923689984, guid: c18394ff0fbfb3f4c82da33f182625e2, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 20

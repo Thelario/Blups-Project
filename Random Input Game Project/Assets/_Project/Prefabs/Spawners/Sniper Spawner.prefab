@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &468597945990479642
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 468597945990479643}
+  - component: {fileID: 468597945990479640}
+  m_Layer: 0
+  m_Name: Sniper Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &468597945990479643
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 468597945990479642}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &468597945990479640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 468597945990479642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 834d8da8dd01ea246be161541917f3a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBetweenObjectsEasy: 1.5
+  timeBetweenObjectsMedium: 1
+  timeBetweenObjectsHard: 0.5
+  waypoints:
+  - {x: 7.5, y: 4, z: 0}
+  - {x: 7.5, y: 2, z: 0}
+  - {x: 7.5, y: 0, z: 0}
+  - {x: 7.5, y: -2, z: 0}
+  - {x: 7.5, y: -4, z: 0}
+  enemy: {fileID: 6472858856930963297, guid: 1dfe80f026bbd844991e06d7e8478be1, type: 3}

@@ -74,10 +74,13 @@ namespace Game.Spawnners
         {
             int n = Random.Range(0, 100);
 
-            if (n > 80)
-                return obstaclesPrefabs[1];
-            else
-                return obstaclesPrefabs[0];
+            if (n == 99)
+                return obstaclesPrefabs[2]; // Secret
+            
+            if (n > 80 && n < 99)
+                return obstaclesPrefabs[1]; // Coin
+            
+            return obstaclesPrefabs[0]; // Normal Obstacle
         }
 
         private IEnumerator Spawn()

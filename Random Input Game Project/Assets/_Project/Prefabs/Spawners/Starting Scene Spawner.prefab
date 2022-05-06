@@ -104,3 +104,6 @@ MonoBehaviour:
   obstaclesPrefabs:
   - {fileID: 5785788036069138578, guid: 8b69a72ace95bb946986ca286cdab1fb, type: 3}
   - {fileID: 5006097426083960051, guid: a77321cbdd9d7364a840b156e699d54a, type: 3}
+  - {fileID: 5785788036069138578, guid: dc68dd2aff29dcf4fb115a50c750267b, type: 3}
+  - {fileID: 5785788036069138578, guid: f9964ac4ee7cd994f87f088bac9ae02b, type: 3}
+  - {fileID: 5785788036069138578, guid: d999de7bd80415b478d78518a528aa79, type: 3}

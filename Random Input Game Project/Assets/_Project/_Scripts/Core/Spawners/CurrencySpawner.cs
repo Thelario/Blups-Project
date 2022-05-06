@@ -16,7 +16,7 @@ namespace Game.Spawnners
         [SerializeField] private bool spawnVertically = false;
 
         [Header("Prefabs")]
-        [SerializeField] private GameObject coinPrefab;
+        [SerializeField] private GameObject[] prefabs;
 
         private Transform _thisTransform;
 
@@ -87,12 +87,17 @@ namespace Game.Spawnners
                 else
                     randomDir = (Direction)Random.Range(0, 4);
 
-                GameObject g = Instantiate(coinPrefab, GetRandomSpawnpoint(randomDir), Quaternion.identity, _thisTransform);
+                GameObject g = Instantiate(GetRandomPrefab(), GetRandomSpawnpoint(randomDir), Quaternion.identity, _thisTransform);
                 if (g.TryGetComponent(out IDirectable id))
                     id.SetDirection(randomDir);
 
                 yield return new WaitForSecondsRealtime(timeBetweenObjects);
             }
+        }
+
+        private GameObject GetRandomPrefab()
+        {
+            return Random.Range(0, 100) < 99 ? prefabs[0] : prefabs[1];
         }
 
         private Vector3 GetRandomSpawnpoint(Direction dir)

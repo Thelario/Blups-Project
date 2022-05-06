@@ -44,7 +44,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dontDestroyOnLoad: 1
-  timeBetweenText: {fileID: 0}
-  currentLevelTimeText: {fileID: 0}
   timeBetweenWaves: 10
-  timeBetweenPauses: 5
+  timeBetweenPauses: 1

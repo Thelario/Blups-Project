@@ -17,12 +17,6 @@ public class SceneEditorTool : Editor
         EditorSceneManager.OpenScene("Assets/_Project/Scenes/Laser_Minigame.unity", OpenSceneMode.Single);
     }
 
-    [MenuItem("Developer/Change Scene/Bombs")]
-    public static void Bombs()
-    {
-        EditorSceneManager.OpenScene("Assets/_Project/Scenes/Bomb_Minigame.unity", OpenSceneMode.Single);
-    }
-
     [MenuItem("Developer/Change Scene/Huge Obstacles")]
     public static void HugeObstacles()
     {

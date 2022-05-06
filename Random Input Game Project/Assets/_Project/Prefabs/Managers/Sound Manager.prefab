@@ -43,7 +43,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b62112867f94d67469ba7af27d86a9b5, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -273,24 +273,24 @@ MonoBehaviour:
   - sound: 4
     audioClip: {fileID: 8300000, guid: 66cd072d718d6e641b9bcdc51c277386, type: 3}
   - sound: 7
-    audioClip: {fileID: 8300000, guid: a0adcb5aee75fb94585fe2c5bcda8e15, type: 3}
-  - sound: 8
-    audioClip: {fileID: 8300000, guid: 31cd4dc4f7d7c664c82a4bb2b2ee44d4, type: 3}
-  - sound: 9
-    audioClip: {fileID: 8300000, guid: a4bfc7b91fda8b34c8a3ecea279afd2a, type: 3}
-  - sound: 10
     audioClip: {fileID: 8300000, guid: fbad755a675fd5b4dba53d754a615fb6, type: 3}
+  - sound: 8
+    audioClip: {fileID: 8300000, guid: ed659abc9d4b9dc4398d002bc26c3ea3, type: 3}
+  - sound: 9
+    audioClip: {fileID: 8300000, guid: da7951d1af3c9f646bd8bb911967811d, type: 3}
+  - sound: 5
+    audioClip: {fileID: 8300000, guid: a0adcb5aee75fb94585fe2c5bcda8e15, type: 3}
   - sound: 2
     audioClip: {fileID: 8300000, guid: 2872cdfe6a9b4fc498012dbaca10cc71, type: 3}
   - sound: 1
     audioClip: {fileID: 8300000, guid: e8df6fefa59e360428807357a1387578, type: 3}
   - sound: 3
     audioClip: {fileID: 8300000, guid: 0cf3957daa2a30f4f9d735d6c8759b7e, type: 3}
-  - sound: 11
-    audioClip: {fileID: 8300000, guid: ed659abc9d4b9dc4398d002bc26c3ea3, type: 3}
-  - sound: 12
-    audioClip: {fileID: 8300000, guid: da7951d1af3c9f646bd8bb911967811d, type: 3}
+  - sound: 6
+    audioClip: {fileID: 8300000, guid: 31cd4dc4f7d7c664c82a4bb2b2ee44d4, type: 3}
   - sound: 0
     audioClip: {fileID: 8300000, guid: 9a4e0099524afc340899b6b14a6b09ce, type: 3}
-  volume: 0.2
+  volume: 1
   pitch: 1
+  musicAudioSource: {fileID: 227798075}
+  sfxAudioSource: {fileID: 4374734317847004854}

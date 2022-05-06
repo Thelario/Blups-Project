@@ -104,11 +104,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b821ddd2819d07449fea2eed879b60b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 450
   timePassedWhenHit: 2
+  moveSpeed: 450
   idle: Player1DirIdle
   leftDown: Player1DirMoveLeft
-  rightUP: Player1DirMoveRight
+  rightUp: Player1DirMoveRight
 --- !u!1 &6425465737298200477
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,7 +180,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2931209148745530396, guid: d74679d354fab564e89e4991c4e01225, type: 3}
+  m_Sprite: {fileID: -7877738789120566725, guid: 48ad11bb2346aec4ebdd86e3827b2d04, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

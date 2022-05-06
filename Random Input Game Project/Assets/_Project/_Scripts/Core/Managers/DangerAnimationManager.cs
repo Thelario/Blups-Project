@@ -21,6 +21,8 @@ namespace Game.Managers
 
         public void SetActiveAllDangerParticles(bool active)
         {
+            return;
+        
             if (dangerParticles.Length == 0)
                 return;
 

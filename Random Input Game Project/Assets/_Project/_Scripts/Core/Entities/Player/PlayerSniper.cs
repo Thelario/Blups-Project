@@ -3,16 +3,21 @@ using UnityEngine;
 
 namespace Game.Entities
 {
-    public class PlayerSniper : MonoBehaviour
+    public class PlayerSniper : Player
     {
+        [Header("Speed")] 
+        [SerializeField] private float moveSpeed; 
+        
         [Header("Fields")]
         [SerializeField] private float timeBetweenShotsEasy;
         [SerializeField] private float timeBetweenShotsMedium;
         [SerializeField] private float timeBetweenShotsHard;
 
-        [Header("Animations")]
-        [SerializeField] private string shoot;
-
+        [Header("Trigger Names")]
+        [SerializeField] private string idleTrigger;
+        [SerializeField] private string moveTrigger;
+        [SerializeField] private string shootTrigger;
+        
         [Header("References")]
         [SerializeField] private GameObject bullet;
         [SerializeField] private Transform shootPoint;
@@ -20,14 +25,42 @@ namespace Game.Entities
 
         private float _timeBetweenShotsCounter;
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
+            
             _timeBetweenShotsCounter = timeBetweenShotsHard;
         }
 
-        private void Update()
+        protected override void Update()
         {
+            base.Update();
+            
             Shoot();
+        }
+        
+        protected override void GetMoveInput()
+        {
+            verticalRaw = InputManager.Instance.GetVerticalInput();
+
+            if (verticalRaw > 0.1f) // Move up
+            {
+                SoundManager.Instance.PlaySound(SoundType.PlayerWalk, .5f);
+                animator.SetTrigger(moveTrigger);
+            }
+            else if (verticalRaw < -0.1f) // Move down
+            {
+                SoundManager.Instance.PlaySound(SoundType.PlayerWalk, .5f);
+
+                animator.SetTrigger(moveTrigger);
+            }
+            else
+                animator.SetTrigger(idleTrigger);
+        }
+
+        protected override void Move()
+        {
+            rb2D.velocity = Time.fixedDeltaTime * moveSpeed * new Vector2(0f, verticalRaw).normalized;
         }
 
         private void Shoot()
@@ -37,39 +70,28 @@ namespace Game.Entities
                 return;
 
             SoundManager.Instance.PlaySound(SoundType.Laser, 0.5f);
-            Animate(shoot);
-            Instantiate(bullet, shootPoint);
+            animator.SetTrigger(shootTrigger);
+            Instantiate(bullet, shootPoint.position, shootPoint.rotation);
         }
 
         private bool CanShoot()
         {
-            if (_timeBetweenShotsCounter <= 0f)
-            {
-                _timeBetweenShotsCounter = GetTimeBetweenShotsAccordingToDifficulty();
-                return true;
-            }
-
-            return false;
+            if (_timeBetweenShotsCounter > 0f) 
+                return false;
+            
+            _timeBetweenShotsCounter = GetTimeBetweenShotsAccordingToDifficulty();
+            return true;
         }
 
         private float GetTimeBetweenShotsAccordingToDifficulty()
         {
-            switch(DifficultyManager.Instance.currentDifficulty)
+            return DifficultyManager.Instance.currentDifficulty switch
             {
-                case Difficulty.Easy:
-                    return timeBetweenShotsEasy;
-                case Difficulty.Medium:
-                    return timeBetweenShotsMedium;
-                case Difficulty.Hard:
-                    return timeBetweenShotsHard;
-            }
-
-            return 1f;
-        }
-
-        private void Animate(string animation)
-        {
-            animator.Play(animation);
+                Difficulty.Easy => timeBetweenShotsEasy,
+                Difficulty.Medium => timeBetweenShotsMedium,
+                Difficulty.Hard => timeBetweenShotsHard,
+                _ => 1f
+            };
         }
     }
 }

@@ -42,6 +42,7 @@ namespace Game.Managers
 
     public enum ParticleType
     {
-        CoinObtained
+        CoinObtained,
+        SecretObtained
     }
 }

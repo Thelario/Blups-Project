@@ -2,7 +2,7 @@ using UnityEngine;
 using Game.Entities.Helpers;
 using Game.Managers;
 
-#pragma warning disable CS0618 // El tipo o el miembro están obsoletos
+#pragma warning disable CS0618 // El tipo o el miembro estï¿½n obsoletos
 
 namespace Game.Entities
 {
@@ -64,7 +64,7 @@ namespace Game.Entities
 
         private void Rotate()
         {
-            Vector3 direction = (thisTransform.position + new Vector3(_moveDirection.x, _moveDirection.y)) - thisTransform.position;
+            Vector3 direction = thisTransform.position + new Vector3(_moveDirection.x, _moveDirection.y) - thisTransform.position;
             thisTransform.up = direction.normalized;
         }
 

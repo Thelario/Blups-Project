@@ -5,20 +5,19 @@ namespace Game.Entities
 {
     public class PlayerRotation : Player
     {
+        [Header("Speed")]
         [SerializeField] private float rotationSpeed;
-
-        private float _rotationLimit = 70f;
 
         private void Rotate()
         {
-            float zAngles = _horizontal * rotationSpeed * Time.deltaTime;
+            float zAngles = horizontalRaw * rotationSpeed * Time.fixedDeltaTime;
 
-            _transform.Rotate(zAngles * Vector3.forward);
+            thisTransform.Rotate(zAngles * Vector3.forward);
         }
 
         protected override void GetMoveInput()
         {
-            _horizontal = -InputManager.Instance.GetHorizontalInput();
+            horizontalRaw = -InputManager.Instance.GetHorizontalInput();
         }
 
         protected override void Move()

@@ -5,10 +5,13 @@ namespace Game.Entities
 {
     public class PlayerHorizontal : Player
     {
+        [Header("Speed")] 
+        [SerializeField] private float moveSpeed;
+        
         [Header("Animation's Names")]
         [SerializeField] private string idle;
         [SerializeField] private string leftDown;
-        [SerializeField] private string rightUP;
+        [SerializeField] private string rightUp;
 
         private Animator _animator;
 
@@ -21,14 +24,14 @@ namespace Game.Entities
 
         protected override void GetMoveInput()
         {
-            _horizontalRaw = InputManager.Instance.GetHorizontalInput();
+            horizontalRaw = InputManager.Instance.GetHorizontalInput();
 
-            if (_horizontalRaw > 0.1f) // Move right
+            if (horizontalRaw > 0.1f) // Move right
             {
                 SoundManager.Instance.PlaySound(SoundType.PlayerWalk, .5f);
-                _animator.Play(rightUP);
+                _animator.Play(rightUp);
             }
-            else if (_horizontalRaw < -0.1f) // Move left
+            else if (horizontalRaw < -0.1f) // Move left
             {
                 SoundManager.Instance.PlaySound(SoundType.PlayerWalk, .5f);
                 _animator.Play(leftDown);
@@ -39,7 +42,7 @@ namespace Game.Entities
 
         protected override void Move()
         {
-            _rb2D.velocity = Time.fixedDeltaTime * moveSpeed * new Vector2(_horizontalRaw, 0f).normalized;
+            rb2D.velocity = Time.fixedDeltaTime * moveSpeed * new Vector2(horizontalRaw, 0f).normalized;
         }
     }
 }

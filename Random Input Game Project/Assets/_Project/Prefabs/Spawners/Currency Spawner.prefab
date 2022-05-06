@@ -103,4 +103,6 @@ MonoBehaviour:
     - {x: -8, y: 6, z: 0}
   spawnOnlySides: 1
   spawnVertically: 1
-  coinPrefab: {fileID: 1681207394410143683, guid: c4718536d31cc7d40b41d3f367fbea39, type: 3}
+  prefabs:
+  - {fileID: 1681207394410143683, guid: b4b5dd7f77eb3ef419284a8f41d9c979, type: 3}
+  - {fileID: 3108338471742447447, guid: 0a967d12b7d7f8f47b66932bd54dbeb8, type: 3}

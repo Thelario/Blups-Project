@@ -2,7 +2,7 @@ using Game.Managers;
 using UnityEngine;
 using Game.Entities.Helpers;
 
-#pragma warning disable CS0618 // El tipo o el miembro est·n obsoletos
+#pragma warning disable CS0618 // El tipo o el miembro est√°n obsoletos
 
 namespace Game.Entities
 {
@@ -15,7 +15,7 @@ namespace Game.Entities
         [SerializeField] private SpriteRenderer spRenderer;
         [SerializeField] private ParticleSystem trailParticles;
         [SerializeField] private ParticleSystem deathParticles;
-        [SerializeField] private GameObject coin;
+        [SerializeField] private GameObject[] spawnables;
 
         private float _smallMovementAdjustment;
 
@@ -54,10 +54,17 @@ namespace Game.Entities
             deathParticles.startColor = spRenderer.color;
             Vector3 pos = transform.position;
             Instantiate(deathParticles, pos, Quaternion.identity);
-            GameObject c = Instantiate(coin, pos, Quaternion.identity);
-            c.GetComponent<Coin>().SetDirection(Direction.Right);
+            
+            GameObject s = Instantiate(GetRandomSpawnable(), pos, Quaternion.identity);
+            s.GetComponent<IDirectable>().SetDirection(Direction.Right);
+            
             SoundManager.Instance.PlaySound(SoundType.Bomb, 1f);
             DestroyYourself(0f);
+        }
+
+        private GameObject GetRandomSpawnable()
+        {
+            return Random.Range(0, 100) < 99 ? spawnables[0] : spawnables[1];
         }
     }
 }

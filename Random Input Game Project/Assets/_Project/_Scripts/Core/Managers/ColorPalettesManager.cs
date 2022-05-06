@@ -59,9 +59,6 @@ namespace Game.Managers
 
         public ColorPalette GetRandomPaletteFromSelectedPalettes()
         {
-            // TODO: having to create another list everytime we try to get a random palette might not be
-            //       the most efficient thing to do. I should probably optimize this code.
-
             List<ColorPalette> selectedPalettes = new List<ColorPalette>();
 
             foreach (ColorPalette cp in colorPalettes)
@@ -71,9 +68,7 @@ namespace Game.Managers
             }
 
             if (selectedPalettes.Count == 0)
-            {
                 return defaultPalette;
-            }
 
             return selectedPalettes[Random.Range(0, selectedPalettes.Count)];
         }

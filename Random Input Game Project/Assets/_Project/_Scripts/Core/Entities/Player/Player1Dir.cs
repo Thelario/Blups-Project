@@ -6,13 +6,17 @@ namespace Game.Entities
 {
     public class Player1Dir : Player
     {
+        [Header("Speed")] 
+        [SerializeField] private float moveSpeed;
+        
+        [Header("Fixed Positions")]
         [SerializeField] private float leftRightFixedPos;
         [SerializeField] private float upDownFixedPos;
 
         [Header("Animation's Names")]
         [SerializeField] private string idle;
         [SerializeField] private string leftDown;
-        [SerializeField] private string rightUP;
+        [SerializeField] private string rightUp;
 
         private bool _moveHorizontal = true;
 
@@ -36,14 +40,14 @@ namespace Game.Entities
         {
             if (_moveHorizontal)
             {
-                _horizontalRaw = InputManager.Instance.GetHorizontalInput();
+                horizontalRaw = InputManager.Instance.GetHorizontalInput();
 
-                if (_horizontalRaw > 0.1f) // Move right
+                if (horizontalRaw > 0.1f) // Move right
                 {
                     SoundManager.Instance.PlaySound(SoundType.PlayerWalk, .5f);
-                    _animator.Play(rightUP);
+                    _animator.Play(rightUp);
                 }
-                else if (_horizontalRaw < -0.1f) // Move left
+                else if (horizontalRaw < -0.1f) // Move left
                 {
                     SoundManager.Instance.PlaySound(SoundType.PlayerWalk, .5f);
                     _animator.Play(leftDown);
@@ -53,14 +57,14 @@ namespace Game.Entities
             }
             else
             {
-                _verticalRaw = InputManager.Instance.GetVerticalInput();
+                verticalRaw = InputManager.Instance.GetVerticalInput();
 
-                if (_verticalRaw > 0.1f) // Move up
+                if (verticalRaw > 0.1f) // Move up
                 {
                     SoundManager.Instance.PlaySound(SoundType.PlayerWalk, .5f);
-                    _animator.Play(rightUP);
+                    _animator.Play(rightUp);
                 }
-                else if (_verticalRaw < -0.1f) // Move down
+                else if (verticalRaw < -0.1f) // Move down
                 {
                     SoundManager.Instance.PlaySound(SoundType.PlayerWalk, .5f);
                     _animator.Play(leftDown);
@@ -74,11 +78,11 @@ namespace Game.Entities
         {
             if (_moveHorizontal)
             {
-                _rb2D.velocity = Time.fixedDeltaTime * moveSpeed * new Vector2(_horizontalRaw, 0f).normalized;
+                rb2D.velocity = Time.fixedDeltaTime * moveSpeed * new Vector2(horizontalRaw, 0f).normalized;
                 return;
             }
 
-            _rb2D.velocity = Time.fixedDeltaTime * moveSpeed * new Vector2(0f, _verticalRaw).normalized;
+            rb2D.velocity = Time.fixedDeltaTime * moveSpeed * new Vector2(0f, verticalRaw).normalized;
         }
 
         private void SetupPlayer()
@@ -86,7 +90,7 @@ namespace Game.Entities
             SetMoveHorizontal(GameManager.Instance.obstaclesCurrentDirection);
         }
 
-        public void SetMoveHorizontal(Direction dir)
+        private void SetMoveHorizontal(Direction dir)
         {
             if (dir == Direction.Left) // Obstacles appear on the left
             {
@@ -112,7 +116,7 @@ namespace Game.Entities
 
         private void SetPlayerFixedPosition(float x, float y)
         {
-            _transform.position = new Vector3(x, y, 0f);
+            thisTransform.position = new Vector3(x, y, 0f);
         }
     }
 }

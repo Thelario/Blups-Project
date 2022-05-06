@@ -58,7 +58,7 @@ namespace Game.Spawnners
 
         private GameObject GetRandomPrefab()
         {
-            return obstaclesPrefabs[Random.Range(0, 2)];
+            return obstaclesPrefabs[Random.Range(0, obstaclesPrefabs.Length)];
         }
 
         private Vector3 GetRandomSpawnpoint(Direction dir)

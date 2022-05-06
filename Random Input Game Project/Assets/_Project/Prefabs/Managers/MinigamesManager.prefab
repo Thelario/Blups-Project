@@ -46,7 +46,7 @@ MonoBehaviour:
   dontDestroyOnLoad: 1
   minigames:
   - minigame: 1
-    purchased: 1
+    purchased: 0
     price: 25
     name: Lever
   - minigame: 2

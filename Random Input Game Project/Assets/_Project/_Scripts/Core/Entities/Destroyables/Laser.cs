@@ -3,15 +3,12 @@ using UnityEngine;
 
 namespace Game.Entities
 {
-    #pragma warning disable CS0618 // El tipo o el miembro est·n obsoletos
+    #pragma warning disable CS0618 // El tipo o el miembro est√°n obsoletos
 
     public class Laser : DestroyableEntity
     {
         [SerializeField] private SpriteRenderer spriteRenderer;
-        [SerializeField] private SpriteRenderer spriteRendererLeft;
-        [SerializeField] private SpriteRenderer spriteRendererRight;
-        [SerializeField] private ParticleSystem particlesLeft;
-        [SerializeField] private ParticleSystem particlesRight;
+        [SerializeField] private ParticleSystem particles;
 
         private Color _color;
 
@@ -25,10 +22,7 @@ namespace Game.Entities
         {
             _color = color;
             spriteRenderer.color = _color;
-            spriteRendererLeft.color = new Color(Mathf.Clamp01(_color.r - 0.3f), Mathf.Clamp01(_color.g - 0.3f), Mathf.Clamp01(_color.b - 0.3f));
-            spriteRendererRight.color = new Color(Mathf.Clamp01(_color.r - 0.3f), Mathf.Clamp01(_color.g - 0.3f), Mathf.Clamp01(_color.b - 0.3f));
-            particlesLeft.startColor = _color;
-            particlesRight.startColor = _color;
+            particles.startColor = _color;
         }
     }
 }

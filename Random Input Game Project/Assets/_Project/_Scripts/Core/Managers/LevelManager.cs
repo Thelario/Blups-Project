@@ -16,8 +16,6 @@ namespace Game.Managers
         public static LevelEvent OnLevelUnPause;
         public static LevelEvent OnCoinObtained;
 
-        [SerializeField] private Text timeBetweenText;
-        [SerializeField] private Text currentLevelTimeText;
         [SerializeField] private float timeBetweenWaves; // 10 or 15 seconds, after which the game changes the level and input
         [SerializeField] private float timeBetweenPauses; // 3 or 5 seconds, that tells the player the new input and the new way to play
 
@@ -74,7 +72,6 @@ namespace Game.Managers
             if (_levelState == LevelState.Playing)
             {
                 _timeBetweenWavesCounter -= Time.deltaTime;
-                UpdateTimeBetweenText(_timeBetweenWavesCounter);
 
                 if (_timeBetweenWavesCounter <= 0f)
                 {
@@ -87,7 +84,6 @@ namespace Game.Managers
             else if (_levelState == LevelState.PauseBetween)
             {
                 _timeBetweenPausesCounter -= Time.deltaTime;
-                UpdateTimeBetweenText(_timeBetweenPausesCounter);
 
                 if (_timeBetweenPausesCounter <= 0f)
                 {
@@ -98,43 +94,12 @@ namespace Game.Managers
             }
         }
 
-        public void Pause()
-        {
-            _prevState = _levelState;
-            _levelState = LevelState.Pause;
-            OnLevelPause?.Invoke();
-        }
-
-        public void UnPause()
-        {
-            _levelState = _prevState;
-            OnLevelUnPause?.Invoke();
-        }
-
         private void UpdateLevelTime()
         {
             if (_levelState != LevelState.Playing)
                 return;
 
             _currentLevelTime += Time.deltaTime;
-
-            //if (currentLevelTimeText != null)
-            //    currentLevelTimeText.text = ((int)_currentLevelTime).ToString();
-        }
-
-        private void UpdateTimeBetweenText(float time)
-        {
-            timeBetweenText.text = ((int)time).ToString();
-        }
-
-        public void SelectIndividualMinigame()
-        {
-            timeBetweenText.enabled = false;
-        }
-
-        public void SelectLoopingMinigames()
-        {
-            timeBetweenText.enabled = true;
         }
     }
 }

@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 5785788035775964541}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 5785788036069138577}
   m_RootOrder: 0
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4587662494353508903, guid: d74679d354fab564e89e4991c4e01225, type: 3}
+  m_Sprite: {fileID: 3455035786467081047, guid: 48ad11bb2346aec4ebdd86e3827b2d04, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -183,9 +183,13 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4291520950923689984, guid: c18394ff0fbfb3f4c82da33f182625e2, type: 3}
+      propertyPath: ShapeModule.m_Position.z
+      value: -0.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291520950923689984, guid: c18394ff0fbfb3f4c82da33f182625e2, type: 3}
       propertyPath: UVModule.sprites.Array.data[0].sprite
       value: 
-      objectReference: {fileID: 8878438454427474353, guid: d74679d354fab564e89e4991c4e01225, type: 3}
+      objectReference: {fileID: 3455035786467081047, guid: 48ad11bb2346aec4ebdd86e3827b2d04, type: 3}
     - target: {fileID: 4291520950923689987, guid: c18394ff0fbfb3f4c82da33f182625e2, type: 3}
       propertyPath: m_RootOrder
       value: 1

@@ -28,13 +28,11 @@ namespace Game.Managers
         public void SelectIndividualMinigame()
         {
             loopIndefinitely = true;
-            LevelManager.Instance.SelectIndividualMinigame();
         }
 
         public void SelectLoopingMinigames()
         {
             loopIndefinitely = false;
-            LevelManager.Instance.SelectLoopingMinigames();
         }
     }
 }

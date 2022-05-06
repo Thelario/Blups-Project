@@ -186,12 +186,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63a1fbcd1c049e344aa11a8b1fc44c9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 300
   timePassedWhenHit: 2
+  moveSpeed: 300
   idle: Player1DirIdle
   leftDown: Player1DirMoveLeft
-  rightUP: Player1DirMoveRight
-  animateWithThisScript: 1
+  rightUp: Player1DirMoveRight
 --- !u!1001 &5215430649718445622
 PrefabInstance:
   m_ObjectHideFlags: 0

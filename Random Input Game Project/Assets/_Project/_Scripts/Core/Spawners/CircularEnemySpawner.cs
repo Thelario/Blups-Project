@@ -10,7 +10,7 @@ namespace Game.Spawnners
         [Header("Fields")]
         [SerializeField] private float distanceFromCenterToSpawn;
         [SerializeField] private Time time;
-        [SerializeField] private GameObject obstaclePrefab;
+        [SerializeField] private GameObject[] prefabs;
 
         private void Awake()
         {
@@ -51,7 +51,20 @@ namespace Game.Spawnners
 
         private void SpawnSingleObject()
         {
-            Instantiate(obstaclePrefab, GetRandomSpawnpoint(), Quaternion.identity);
+            Instantiate(GetRandomPrefab(), GetRandomSpawnpoint(), Quaternion.identity);
+        }
+
+        private GameObject GetRandomPrefab()
+        {
+            int n = Random.Range(0, 100);
+
+            if (n == 99)
+                return prefabs[2]; // Secret
+            
+            if (n > 80 && n < 99)
+                return prefabs[1]; // Coin
+            
+            return prefabs[0]; // Normal Obstacle
         }
 
         private Vector3 GetRandomSpawnpoint()

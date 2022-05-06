@@ -7,15 +7,14 @@ namespace Game.Entities
     {
         [SerializeField] private float timeToWaitToSpawnLaser;
 
-        [SerializeField] private SpriteRenderer spriteRendererLeft;
-        [SerializeField] private SpriteRenderer spriteRendererRight;
+        [SerializeField] private ParticleSystem particles;
 
         protected override void Awake()
         {
             base.Awake();
 
-            spriteRendererLeft.color = new Color(Mathf.Clamp01(_renderer.color.r - 0.3f), Mathf.Clamp01(_renderer.color.g - 0.3f), Mathf.Clamp01(_renderer.color.b - 0.3f), _renderer.color.a);
-            spriteRendererRight.color = new Color(Mathf.Clamp01(_renderer.color.r - 0.3f), Mathf.Clamp01(_renderer.color.g - 0.3f), Mathf.Clamp01(_renderer.color.b - 0.3f), _renderer.color.a);
+            _renderer.color = new Color(_color.r, _color.g, _color.b, 0.25f);
+            particles.startColor = _renderer.color;
         }
 
         protected override IEnumerator SpawnObject()

@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 6472858855513989373}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.6, y: 1.6, z: 1}
   m_Children: []
   m_Father: {fileID: 6472858856930963296}
   m_RootOrder: 0
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 6134894473773246922, guid: d74679d354fab564e89e4991c4e01225, type: 3}
+  m_Sprite: {fileID: 5104854161577973588, guid: 48ad11bb2346aec4ebdd86e3827b2d04, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -155,7 +155,9 @@ MonoBehaviour:
   spRenderer: {fileID: 6472858855513989375}
   trailParticles: {fileID: 772767669125747888}
   deathParticles: {fileID: 2545714239033304248, guid: b0da784d386f26f47a97ba238810e013, type: 3}
-  coin: {fileID: 1681207394410143683, guid: c4718536d31cc7d40b41d3f367fbea39, type: 3}
+  spawnables:
+  - {fileID: 1101157184721556679, guid: 75d937f3db0670b42addc92c58ea5651, type: 3}
+  - {fileID: 3108338471742447447, guid: 0a967d12b7d7f8f47b66932bd54dbeb8, type: 3}
 --- !u!50 &6472858856930963325
 Rigidbody2D:
   serializedVersion: 4
@@ -200,6 +202,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6472858856930963296}
     m_Modifications:
+    - target: {fileID: 4291520950923689984, guid: c18394ff0fbfb3f4c82da33f182625e2, type: 3}
+      propertyPath: SizeModule.curve.scalar
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291520950923689984, guid: c18394ff0fbfb3f4c82da33f182625e2, type: 3}
+      propertyPath: UVModule.sprites.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 5104854161577973588, guid: 48ad11bb2346aec4ebdd86e3827b2d04, type: 3}
     - target: {fileID: 4291520950923689984, guid: c18394ff0fbfb3f4c82da33f182625e2, type: 3}
       propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].time
       value: 0
