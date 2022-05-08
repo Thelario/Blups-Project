@@ -34,7 +34,7 @@ namespace Game.Managers
                 if (_mistakes == 0)
                 {
                     ChangeDifficulty(Difficulty.Medium);
-                    _mistakes = 3;
+                    _mistakes = 2;
                 }
             }
             else if (currentDifficulty == Difficulty.Medium)
@@ -58,7 +58,7 @@ namespace Game.Managers
                 {
                     ChangeDifficulty(Difficulty.Medium);
                     _succesess = 0;
-                    _mistakes = 3;
+                    _mistakes = 2;
                 }
             }
             else if (currentDifficulty == Difficulty.Medium)
@@ -66,7 +66,7 @@ namespace Game.Managers
                 if (_succesess == 5)
                 {
                     ChangeDifficulty(Difficulty.Hard);
-                    _mistakes = 3;
+                    _mistakes = 2;
                 }
             }
         }

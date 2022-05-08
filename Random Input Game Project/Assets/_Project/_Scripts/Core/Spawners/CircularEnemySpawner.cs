@@ -9,6 +9,7 @@ namespace Game.Spawnners
     {
         [Header("Fields")]
         [SerializeField] private float distanceFromCenterToSpawn;
+        [SerializeField] private float pcTimeModifier;
         [SerializeField] private Time time;
         [SerializeField] private GameObject[] prefabs;
 
@@ -84,6 +85,11 @@ namespace Game.Spawnners
         private void ChangeDifficulty()
         {
             time.ChangeDifficulty();
+            
+            #if UNITY_EDITOR || UNITY_STANDALONE
+            time.timeBetweenObjects -= pcTimeModifier;
+#endif
+
         }
     }
 }

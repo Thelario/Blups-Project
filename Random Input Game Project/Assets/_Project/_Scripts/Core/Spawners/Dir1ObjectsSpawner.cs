@@ -70,6 +70,10 @@ namespace Game.Spawnners
                         _timeBetweenObstacles = timeBetweenObstaclesHard;
                     break;
             }
+            
+            #if UNITY_EDITOR || UNITY_STANDALONE
+            _timeBetweenObstacles -= 0.05f;
+            #endif
         }
 
         private IEnumerator Spawn()

@@ -244,14 +244,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3364539919956602195, guid: f5f1d9d73f5c82d4397933f38444b3eb, type: 3}
-      propertyPath: EmissionModule.rateOverTime.scalar
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 3561190498438482222, guid: f5f1d9d73f5c82d4397933f38444b3eb, type: 3}
-      propertyPath: EmissionModule.rateOverTime.scalar
-      value: 40
-      objectReference: {fileID: 0}
     - target: {fileID: 4413558916871976286, guid: f5f1d9d73f5c82d4397933f38444b3eb, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -299,14 +291,6 @@ PrefabInstance:
     - target: {fileID: 4413558916871976287, guid: f5f1d9d73f5c82d4397933f38444b3eb, type: 3}
       propertyPath: m_Name
       value: Player Sword
-      objectReference: {fileID: 0}
-    - target: {fileID: 5999025923634100511, guid: f5f1d9d73f5c82d4397933f38444b3eb, type: 3}
-      propertyPath: EmissionModule.rateOverTime.scalar
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 7370761561426508416, guid: f5f1d9d73f5c82d4397933f38444b3eb, type: 3}
-      propertyPath: EmissionModule.rateOverTime.scalar
-      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5f1d9d73f5c82d4397933f38444b3eb, type: 3}

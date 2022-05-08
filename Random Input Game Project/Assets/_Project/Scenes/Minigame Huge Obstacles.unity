@@ -507,6 +507,18 @@ PrefabInstance:
       propertyPath: exclamationManager
       value: 
       objectReference: {fileID: 4334475411808072176}
+    - target: {fileID: 6461398349568886372, guid: 2ffa672827bc9864a8951b524ad0675c, type: 3}
+      propertyPath: timeBetweenSpawnsEasy
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6461398349568886372, guid: 2ffa672827bc9864a8951b524ad0675c, type: 3}
+      propertyPath: timeBetweenSpawnsHard
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6461398349568886372, guid: 2ffa672827bc9864a8951b524ad0675c, type: 3}
+      propertyPath: timeBetweenSpawnsMedium
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6461398349568886373, guid: 2ffa672827bc9864a8951b524ad0675c, type: 3}
       propertyPath: m_RootOrder
       value: 1

@@ -73,25 +73,12 @@ namespace Game.Managers
             return selectedPalettes[Random.Range(0, selectedPalettes.Count)];
         }
 
-        public List<Color> GetSelectedColors()
-        {
-            List<Color> cs = new List<Color>();
-
-            foreach (ColorPalette cp in colorPalettes)
-            {
-                if (cp.selected)
-                    cs.Add(cp.color);
-            }
-
-            return cs;
-        }
-
         public Color GetRandomColor()
         {
             if (currentPalette == null)
                 return defaultPalette.color;
 
-            return currentPalette.color;
+            return GetRandomPaletteFromSelectedPalettes().color;
         }
     }
 }

@@ -32,7 +32,9 @@ namespace Game.UI
 
                 GameObject palette = Instantiate(palettePrefabUI, palettesParent);
                 PaletteItemUI piui = palette.GetComponentInChildren<PaletteItemUI>();
+                piui.colorPalette = cp;
                 piui.color.color = cp.color;
+                piui.palettesShop = this;
             }
         }
 

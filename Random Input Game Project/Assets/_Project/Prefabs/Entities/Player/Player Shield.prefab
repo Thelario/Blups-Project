@@ -160,6 +160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timePassedWhenHit: 2
   rotationSpeed: 250
+  pcRotationSpeedModifier: 50
 --- !u!1 &4413558916927483083
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,6 +294,10 @@ PrefabInstance:
       propertyPath: SizeModule.curve.scalar
       value: 0.7
       objectReference: {fileID: 0}
+    - target: {fileID: 4291520950923689984, guid: c18394ff0fbfb3f4c82da33f182625e2, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 4291520950923689987, guid: c18394ff0fbfb3f4c82da33f182625e2, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -362,6 +367,10 @@ PrefabInstance:
     - target: {fileID: 4291520950923689984, guid: c18394ff0fbfb3f4c82da33f182625e2, type: 3}
       propertyPath: SizeModule.curve.scalar
       value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291520950923689984, guid: c18394ff0fbfb3f4c82da33f182625e2, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 4291520950923689984, guid: c18394ff0fbfb3f4c82da33f182625e2, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
@@ -500,6 +509,10 @@ PrefabInstance:
       value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 4291520950923689984, guid: c18394ff0fbfb3f4c82da33f182625e2, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291520950923689984, guid: c18394ff0fbfb3f4c82da33f182625e2, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
       value: 0.3
       objectReference: {fileID: 0}
@@ -572,6 +585,10 @@ PrefabInstance:
     - target: {fileID: 4291520950923689984, guid: c18394ff0fbfb3f4c82da33f182625e2, type: 3}
       propertyPath: SizeModule.curve.scalar
       value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291520950923689984, guid: c18394ff0fbfb3f4c82da33f182625e2, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 4291520950923689984, guid: c18394ff0fbfb3f4c82da33f182625e2, type: 3}
       propertyPath: InitialModule.startLifetime.scalar

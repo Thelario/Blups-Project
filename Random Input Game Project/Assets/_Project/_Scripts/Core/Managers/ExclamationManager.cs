@@ -13,9 +13,9 @@ namespace Game.Managers
             _transform = transform;
         }
 
-        public void CreateExclamation(Vector3 spawnPoint, Direction direction)
+        public void CreateExclamation(Vector3 spawnPoint, Direction direction, float time)
         {
-            Destroy(Instantiate(exclamationPrerfab, GetRealPosition(spawnPoint, direction), Quaternion.identity, _transform), 1f);
+            Destroy(Instantiate(exclamationPrerfab, GetRealPosition(spawnPoint, direction), Quaternion.identity, _transform), time);
         }
 
         private Vector3 GetRealPosition(Vector3 spawnPoint, Direction direction)

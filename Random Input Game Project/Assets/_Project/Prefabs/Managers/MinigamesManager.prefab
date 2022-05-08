@@ -45,14 +45,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dontDestroyOnLoad: 1
   minigames:
-  - minigame: 1
-    purchased: 0
-    price: 25
-    name: Lever
   - minigame: 2
     purchased: 1
     price: 25
-    name: One Dir
+    name: One Direction
   - minigame: 3
     purchased: 1
     price: 25
@@ -60,12 +56,72 @@ MonoBehaviour:
   - minigame: 4
     purchased: 1
     price: 25
-    name: Size Matter
+    name: Size Matters
   - minigame: 5
     purchased: 1
     price: 25
     name: Sniper
   - minigame: 6
     purchased: 1
+    price: 25
+    name: Sword
+  - minigame: 1
+    purchased: 0
+    price: 25
+    name: Shield
+  - minigame: 1
+    purchased: 0
+    price: 25
+    name: Shield
+  - minigame: 1
+    purchased: 0
+    price: 25
+    name: Shield
+  - minigame: 1
+    purchased: 0
+    price: 25
+    name: Shield
+  - minigame: 1
+    purchased: 0
+    price: 25
+    name: Shield
+  - minigame: 1
+    purchased: 0
+    price: 25
+    name: Shield
+  - minigame: 1
+    purchased: 0
+    price: 25
+    name: Shield
+  - minigame: 1
+    purchased: 0
+    price: 25
+    name: Shield
+  - minigame: 1
+    purchased: 0
+    price: 25
+    name: Shield
+  - minigame: 1
+    purchased: 0
+    price: 25
+    name: Shield
+  - minigame: 1
+    purchased: 0
+    price: 25
+    name: Shield
+  - minigame: 1
+    purchased: 0
+    price: 25
+    name: Shield
+  - minigame: 1
+    purchased: 0
+    price: 25
+    name: Shield
+  - minigame: 1
+    purchased: 0
+    price: 25
+    name: Shield
+  - minigame: 1
+    purchased: 0
     price: 25
     name: Shield

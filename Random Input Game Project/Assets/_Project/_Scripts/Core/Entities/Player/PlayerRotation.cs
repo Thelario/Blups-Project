@@ -1,3 +1,4 @@
+using System;
 using Game.Managers;
 using UnityEngine;
 
@@ -7,6 +8,14 @@ namespace Game.Entities
     {
         [Header("Speed")]
         [SerializeField] private float rotationSpeed;
+        [SerializeField] private float pcRotationSpeedModifier;
+
+        #if UNITY_EDITOR || UNITY_STANDALONE
+        private void Start()
+        {
+            rotationSpeed += pcRotationSpeedModifier;
+        }
+        #endif
 
         private void Rotate()
         {

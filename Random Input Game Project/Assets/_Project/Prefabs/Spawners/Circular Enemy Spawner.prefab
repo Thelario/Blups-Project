@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceFromCenterToSpawn: 12
+  pcTimeModifier: 0.25
   time:
     timeBetweenObjects: 0
     timeBetweenObjectsEasy: 1.25

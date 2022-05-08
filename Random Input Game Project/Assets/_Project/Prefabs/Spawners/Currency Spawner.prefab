@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aca7fb1437c90ab4e93ff4d8ad818cf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenObjects: 2
+  timeBetweenObjects: 1.5
   waypoints:
   - spawnPoints:
     - {x: -10, y: -4, z: 0}
