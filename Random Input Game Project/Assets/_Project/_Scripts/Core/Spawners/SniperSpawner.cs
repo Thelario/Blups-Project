@@ -1,6 +1,8 @@
+using System;
 using Game.Managers;
 using System.Collections;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Game.Spawnners
 {
@@ -26,6 +28,15 @@ namespace Game.Spawnners
         {
             _transform = transform;
             _previousSpawnpoint = Vector3.zero;
+            
+            GameManager.OnPlayerDeath += SetSpawnFalse;
+            GameManager.OnPlayerRevive += SetSpawnTrue;
+        }
+
+        private void OnDestroy()
+        {
+            GameManager.OnPlayerDeath -= SetSpawnFalse;
+            GameManager.OnPlayerRevive -= SetSpawnTrue;
         }
 
         private void Start()

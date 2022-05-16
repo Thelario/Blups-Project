@@ -244,54 +244,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 103044083, guid: 5c1b9a2c544a28a4aa0537814a878048, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 103044083, guid: 5c1b9a2c544a28a4aa0537814a878048, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 103044083, guid: 5c1b9a2c544a28a4aa0537814a878048, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 103044083, guid: 5c1b9a2c544a28a4aa0537814a878048, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 550824007, guid: 5c1b9a2c544a28a4aa0537814a878048, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 550824007, guid: 5c1b9a2c544a28a4aa0537814a878048, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 550824007, guid: 5c1b9a2c544a28a4aa0537814a878048, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 550824007, guid: 5c1b9a2c544a28a4aa0537814a878048, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1500431706, guid: 5c1b9a2c544a28a4aa0537814a878048, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1500431706, guid: 5c1b9a2c544a28a4aa0537814a878048, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1500431706, guid: 5c1b9a2c544a28a4aa0537814a878048, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1500431706, guid: 5c1b9a2c544a28a4aa0537814a878048, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5210322513630616693, guid: 5c1b9a2c544a28a4aa0537814a878048, type: 3}
       propertyPath: m_Name
       value: Canvas Manager

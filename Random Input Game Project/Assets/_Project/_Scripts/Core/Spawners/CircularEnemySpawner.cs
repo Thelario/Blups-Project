@@ -16,11 +16,15 @@ namespace Game.Spawnners
         private void Awake()
         {
             DifficultyManager.OnDifficultyChange += ChangeDifficulty;
+            GameManager.OnPlayerDeath += SetSpawnFalse;
+            GameManager.OnPlayerRevive += SetSpawnTrue;
         }
 
         private void OnDestroy()
         {
             DifficultyManager.OnDifficultyChange -= ChangeDifficulty;
+            GameManager.OnPlayerDeath -= SetSpawnFalse;
+            GameManager.OnPlayerRevive -= SetSpawnTrue;
         }
 
         private void Start()
@@ -86,7 +90,7 @@ namespace Game.Spawnners
         {
             time.ChangeDifficulty();
             
-            #if UNITY_EDITOR || UNITY_STANDALONE
+#if UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBGL
             time.timeBetweenObjects -= pcTimeModifier;
 #endif
 

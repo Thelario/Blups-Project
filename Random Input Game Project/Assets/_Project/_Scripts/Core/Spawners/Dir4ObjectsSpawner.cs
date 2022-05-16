@@ -34,8 +34,9 @@ namespace Game.Spawnners
             LevelManager.OnLevelEnd += SetSpawnFalse;
             LevelManager.OnLevelLost += SetSpawnFalse;
             LevelManager.OnLevelPause += SetSpawnFalse;
-
             DifficultyManager.OnDifficultyChange += ChangeDifficulty;
+            GameManager.OnPlayerDeath += SetSpawnFalse;
+            GameManager.OnPlayerRevive += SetSpawnTrue;
         }
 
         private void OnDestroy()
@@ -45,8 +46,9 @@ namespace Game.Spawnners
             LevelManager.OnLevelEnd -= SetSpawnFalse;
             LevelManager.OnLevelLost -= SetSpawnFalse;
             LevelManager.OnLevelPause -= SetSpawnFalse;
-
             DifficultyManager.OnDifficultyChange -= ChangeDifficulty;
+            GameManager.OnPlayerDeath -= SetSpawnFalse;
+            GameManager.OnPlayerRevive -= SetSpawnTrue;
         }
 
         private void OnLevelWasLoaded()

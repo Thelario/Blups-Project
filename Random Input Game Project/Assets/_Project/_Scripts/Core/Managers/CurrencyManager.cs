@@ -44,13 +44,17 @@ namespace Game.Managers
 
         private void Save()
         {
-            // TODO: add a saving system for the currency amount
+            PlayerPrefs.SetInt("Currency", _currencyAmount);
+            PlayerPrefs.Save();
         }
 
         private void Load()
         {
-            // TODO: add a loading system for the currency amount
-            // TODO: after loading
+            if (PlayerPrefs.HasKey("Currency"))
+                _currencyAmount = PlayerPrefs.GetInt("Currency");
+            else
+                _currencyAmount = 0;
+            
             OnUpdateCurrency?.Invoke(_currencyAmount);
         }
     }

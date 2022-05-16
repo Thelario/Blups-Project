@@ -10,6 +10,8 @@ namespace Game.Entities
             LevelManager.OnLevelPause += DestroyYourself;
             LevelManager.OnLevelEnd += DestroyYourself;
             LevelManager.OnLevelLost += DestroyYourself;
+
+            GameManager.OnPlayerDeath += AnimateDestroy;
         }
 
         protected virtual void OnDestroy()
@@ -17,16 +19,24 @@ namespace Game.Entities
             LevelManager.OnLevelPause -= DestroyYourself;
             LevelManager.OnLevelEnd -= DestroyYourself;
             LevelManager.OnLevelLost -= DestroyYourself;
+            
+            GameManager.OnPlayerDeath -= AnimateDestroy;
         }
 
-        public virtual void DestroyYourself(float time)
+        protected void DestroyYourself(float time)
         {
             Destroy(gameObject, time);
         }
 
-        public virtual void DestroyYourself()
+        protected virtual void DestroyYourself()
         {
             DestroyYourself(0.0f);
+        }
+
+        private void AnimateDestroy()
+        {
+            LeanTween.scale(gameObject, Vector3.zero, .5f);
+            DestroyYourself(0.5f);
         }
     }
 }

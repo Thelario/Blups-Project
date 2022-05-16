@@ -10,13 +10,17 @@ namespace Game.Entities
         [Header("Fields")]
         [SerializeField] protected float timePassedWhenHit = 2f;
 
+        [Header("References")]
+        [SerializeField] protected SpriteRenderer spRenderer;
+        [SerializeField] protected ParticleSystem particles;
+        
         protected float horizontalRaw;
         protected float verticalRaw;
 
         protected Rigidbody2D rb2D;
         protected Transform thisTransform;
         
-        private bool _invincible;
+        protected bool invincible;
 
         protected virtual void Awake()
         {
@@ -26,15 +30,21 @@ namespace Game.Entities
 
         protected virtual void Update()
         {
-#if UNITY_STANDALONE || UNITY_EDITOR 
+#if UNITY_STANDALONE || UNITY_EDITOR || UNITY_WEBGL
             GetPauseInput();
 #endif
-            
+
+            if (invincible)
+                return;
+                
             GetMoveInput();
         }
 
         protected void FixedUpdate()
         {
+            if (invincible)
+                return;
+            
             Move();
         }
         
@@ -46,7 +56,7 @@ namespace Game.Entities
         {
             if (collision.CompareTag("Obstacle"))
             {
-                if (_invincible)
+                if (invincible)
                     return;
 
                 HandleTriggerObstacle();
@@ -57,8 +67,8 @@ namespace Game.Entities
             }
         }
       
-#if UNITY_STANDALONE || UNITY_EDITOR 
-        protected void GetPauseInput()
+#if UNITY_STANDALONE || UNITY_EDITOR || UNITY_WEBGL
+        private void GetPauseInput()
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
@@ -68,15 +78,15 @@ namespace Game.Entities
         }
 #endif
 
-        protected void HandleTriggerObstacle()
+        public void HandleTriggerObstacle()
         {
             SoundManager.Instance.PlaySound(SoundType.PlayerObstacleHit);
-            TimeManager.Instance.SlowTime(timePassedWhenHit);
-            StartCoroutine(nameof(MakeInvencible));
+            ParticlesManager.Instance.CreateParticle(ParticleType.PlayerDeath, thisTransform.position);
+            StartCoroutine(nameof(PlayerDies));
             DifficultyManager.Instance.PlayerMistake();
         }
 
-        protected void HandleTriggerCoin(Collider2D collision)
+        private void HandleTriggerCoin(Collider2D collision)
         {
             SoundManager.Instance.PlaySound(SoundType.Coin);
             ParticlesManager.Instance.CreateParticle(ParticleType.CoinObtained, collision.transform.position);
@@ -86,11 +96,20 @@ namespace Game.Entities
             Destroy(collision.gameObject);
         }
 
-        protected IEnumerator MakeInvencible()
+        protected virtual IEnumerator PlayerDies()
         {
-            _invincible = true;
+            GameManager.Instance.PlayerDies();
+            invincible = true;
+            particles.Stop();
+            spRenderer.enabled = false;
+            rb2D.velocity = Vector2.zero;
+
             yield return new WaitForSecondsRealtime(timePassedWhenHit);
-            _invincible = false;
+
+            particles.Play();
+            spRenderer.enabled = true;
+            invincible = false;
+            GameManager.Instance.PlayerRevive();
         }
     }
 }

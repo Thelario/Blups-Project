@@ -43,6 +43,7 @@ namespace Game.UI
 
             _currentPalette.Buy();
             CurrencyManager.Instance.DecreaseCurrency(_currentPalette.price);
+            ColorPalettesManager.Instance.SaveColors();
             palettesShop.DestroyItems();
             palettesShop.CreateItems();
             Cancel();

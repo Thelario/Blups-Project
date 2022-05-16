@@ -1,4 +1,4 @@
-using System;
+using System.Collections;
 using Game.Managers;
 using UnityEngine;
 
@@ -6,11 +6,15 @@ namespace Game.Entities
 {
     public class PlayerRotation : Player
     {
-        [Header("Speed")]
+        [Header("Player Rotation Speed")]
         [SerializeField] private float rotationSpeed;
         [SerializeField] private float pcRotationSpeedModifier;
 
-        #if UNITY_EDITOR || UNITY_STANDALONE
+        [Header("Player Rotation References")]
+        [SerializeField] protected SpriteRenderer baseRenderer;
+        [SerializeField] protected SpriteRenderer middleRenderer;
+        
+        #if UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBGL
         private void Start()
         {
             rotationSpeed += pcRotationSpeedModifier;
@@ -32,6 +36,26 @@ namespace Game.Entities
         protected override void Move()
         {
             Rotate();
+        }
+
+        protected override IEnumerator PlayerDies()
+        {
+            GameManager.Instance.PlayerDies();
+            invincible = true;
+            particles.Stop();
+            spRenderer.enabled = false;
+            baseRenderer.enabled = false;
+            middleRenderer.enabled = false;
+            rb2D.velocity = Vector2.zero;
+
+            yield return new WaitForSecondsRealtime(timePassedWhenHit);
+
+            particles.Play();
+            spRenderer.enabled = true;
+            baseRenderer.enabled = true;
+            middleRenderer.enabled = true;
+            invincible = false;
+            GameManager.Instance.PlayerRevive();
         }
     }
 }

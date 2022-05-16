@@ -1,3 +1,4 @@
+using Game.UI;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -78,6 +79,7 @@ namespace Game.Managers
                     _levelState = LevelState.PauseBetween;
                     _timeBetweenWavesCounter = timeBetweenWaves;
                     OnLevelEnd?.Invoke();
+                    
                     SceneGameManager.Instance.LoadRandomGameScene();
                 }
             }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Game.Managers
 {
@@ -20,6 +21,35 @@ namespace Game.Managers
     {
         public List<Minigame> minigames;
 
+        protected override void Awake()
+        {
+            base.Awake();
+            
+            SaveMinigames();
+            LoadMinigames();
+        }
+
+        private void SaveMinigames()
+        {
+            foreach (Minigame m in minigames)
+            {
+                PlayerPrefs.SetInt(m.name, m.purchased ? 1 : 0);
+            }
+            
+            PlayerPrefs.Save();
+        }
+
+        private void LoadMinigames()
+        {
+            foreach (Minigame m in minigames)
+            {
+                if (!PlayerPrefs.HasKey(m.name))
+                    return;
+                
+                m.purchased = PlayerPrefs.GetInt(m.name) == 1;
+            }
+        }
+        
         public bool CheckMinigamePurchased(Scenes scene)
         {
             foreach (Minigame m in minigames)

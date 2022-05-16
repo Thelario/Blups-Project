@@ -10,7 +10,6 @@ namespace Game.Managers
         public bool purchased;
         public bool selected = true;
         public Color color;
-
         public void Buy()
         {
             purchased = true;
@@ -37,7 +36,7 @@ namespace Game.Managers
             LevelManager.OnLevelStart += SetNewPalette;
             LevelManager.OnGameStart += SetNewPalette;
 
-            SetupPalettesPrices();
+            SetupColors();
         }
 
         private void OnDestroy()
@@ -46,10 +45,38 @@ namespace Game.Managers
             LevelManager.OnGameStart -= SetNewPalette;
         }
 
+        private void SetupColors()
+        {
+            SetupPalettesPrices();
+
+            LoadColors();
+        }
+
         private void SetupPalettesPrices()
         {
             foreach (ColorPalette cp in colorPalettes)
                 cp.price = 25;
+        }
+
+        private void LoadColors()
+        {
+            foreach (ColorPalette cp in colorPalettes)
+            {
+                if (!PlayerPrefs.HasKey(cp.color.ToString()))
+                    return;
+                
+                cp.purchased = PlayerPrefs.GetInt(cp.color.ToString()) == 1;
+            }
+        }
+
+        public void SaveColors()
+        {
+            foreach (ColorPalette cp in colorPalettes)
+            {
+                // We save 1 if the color has been purchased and 0 if not.
+                // The key is the color converted into a string.
+                PlayerPrefs.SetInt(cp.color.ToString(), cp.purchased ? 1 : 0);
+            }
         }
 
         private void SetNewPalette()

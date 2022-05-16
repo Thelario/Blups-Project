@@ -68,7 +68,7 @@ namespace Game.Entities
             thisTransform.up = direction.normalized;
         }
 
-        public override void DestroyYourself()
+        protected override void DestroyYourself()
         {
             animator.enabled = false;
             LeanTween.scale(gameObject, Vector3.zero, 0.5f);

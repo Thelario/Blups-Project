@@ -46,6 +46,12 @@ public class SceneEditorTool : Editor
     {
         EditorSceneManager.OpenScene("Assets/_Project/Scenes/Minigame Sword.unity", OpenSceneMode.Single);
     }
+
+    [MenuItem("Developer/Change Scene/Minigame Control Obstacles")]
+    public static void ControlObstacles()
+    {
+        EditorSceneManager.OpenScene("Assets/_Project/Scenes/Minigame Control Obstacles.unity", OpenSceneMode.Single);
+    }
 }
 
 #endif

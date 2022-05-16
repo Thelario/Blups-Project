@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2931209148745530396, guid: d74679d354fab564e89e4991c4e01225, type: 3}
+  m_Sprite: {fileID: -7877738789120566725, guid: 48ad11bb2346aec4ebdd86e3827b2d04, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -187,6 +187,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timePassedWhenHit: 2
+  spRenderer: {fileID: 5215430649770080711}
+  particles: {fileID: 8353725522686187062}
   moveSpeed: 300
   idle: Player1DirIdle
   leftDown: Player1DirMoveLeft
@@ -251,5 +253,10 @@ PrefabInstance:
 --- !u!4 &8353725522686187061 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4291520950923689987, guid: c18394ff0fbfb3f4c82da33f182625e2, type: 3}
+  m_PrefabInstance: {fileID: 5215430649718445622}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &8353725522686187062 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4291520950923689984, guid: c18394ff0fbfb3f4c82da33f182625e2, type: 3}
   m_PrefabInstance: {fileID: 5215430649718445622}
   m_PrefabAsset: {fileID: 0}

@@ -6,7 +6,7 @@ namespace Game.Managers
     {
         public float GetHorizontalInput()
         {
-#if UNITY_STANDALONE
+#if UNITY_STANDALONE || UNITY_WEBGL
 
             return Input.GetAxisRaw("Horizontal");
 
@@ -29,7 +29,7 @@ namespace Game.Managers
 
         public float GetVerticalInput()
         {
-#if UNITY_STANDALONE
+#if UNITY_STANDALONE || UNITY_WEBGL
 
             return Input.GetAxisRaw("Vertical");
 

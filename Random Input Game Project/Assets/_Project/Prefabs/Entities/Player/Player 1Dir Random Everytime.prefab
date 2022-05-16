@@ -168,6 +168,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timePassedWhenHit: 2
+  spRenderer: {fileID: 7896945199336906453}
+  particles: {fileID: 6204023225896808740}
   moveSpeed: 300
   leftRightFixedPos: 8
   upDownFixedPos: 4.25
@@ -253,5 +255,10 @@ PrefabInstance:
 --- !u!4 &6204023225896808743 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4291520950923689987, guid: c18394ff0fbfb3f4c82da33f182625e2, type: 3}
+  m_PrefabInstance: {fileID: 7896945199386865956}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &6204023225896808740 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4291520950923689984, guid: c18394ff0fbfb3f4c82da33f182625e2, type: 3}
   m_PrefabInstance: {fileID: 7896945199386865956}
   m_PrefabAsset: {fileID: 0}

@@ -1,11 +1,12 @@
+using Game.Entities.Helpers;
 using Game.Managers;
 using UnityEngine;
 
-#pragma warning disable CS0618 // El tipo o el miembro est�n obsoletos
+#pragma warning disable CS0618
 
 namespace Game.Entities
 {
-    public class EnemyMovesCenter : DestroyableEntity
+    public class EnemyMovesCenter : DestroyableEntity, IDamageable
     {
         [SerializeField] private float moveSpeed;
 
@@ -32,26 +33,6 @@ namespace Game.Entities
             Move();
         }
 
-        private void OnTriggerEnter2D(Collider2D collision)
-        {
-            if (collision.CompareTag("PlayerShield"))
-            {
-                SoundManager.Instance.PlaySound(SoundType.PlayerObstacleHit);
-                
-                deathParticles.startColor = spRenderer.color;
-                Instantiate(deathParticles, transform.position, Quaternion.identity);
-                
-                DestroyYourself(0f);
-            }
-            else if (collision.CompareTag("Player"))
-            {
-                SoundManager.Instance.PlaySound(SoundType.PlayerObstacleHit);
-                TimeManager.Instance.SlowTime(2f);
-                DifficultyManager.Instance.PlayerMistake();
-                DestroyYourself(0f);
-            }
-        }
-
         private void Setup()
         {
             spRenderer.color = ColorPalettesManager.Instance.GetRandomColor();
@@ -68,6 +49,16 @@ namespace Game.Entities
         {
             Vector2 direction = Vector3.zero - thisTransform.position;
             rb2D.velocity = moveSpeed * Time.fixedDeltaTime * direction.normalized;
+        }
+
+        public void TakeDamage()
+        {
+            SoundManager.Instance.PlaySound(SoundType.PlayerObstacleHit);
+                
+            deathParticles.startColor = spRenderer.color;
+            Instantiate(deathParticles, transform.position, Quaternion.identity);
+                
+            DestroyYourself(0f);
         }
     }
 }

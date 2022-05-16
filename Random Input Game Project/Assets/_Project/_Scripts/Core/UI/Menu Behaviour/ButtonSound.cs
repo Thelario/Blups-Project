@@ -13,7 +13,7 @@ namespace Game.UI
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-#if UNITY_STANDALONE
+#if UNITY_STANDALONE || UNITY_WEBGL
             SoundManager.Instance.PlaySound(SoundType.MouseOverButton);
 #endif
         }

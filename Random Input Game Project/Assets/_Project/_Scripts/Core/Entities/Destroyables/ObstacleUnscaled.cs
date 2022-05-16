@@ -2,7 +2,7 @@ using Game.Managers;
 using System.Collections;
 using UnityEngine;
 
-#pragma warning disable CS0618 // El tipo o el miembro están obsoletos
+#pragma warning disable CS0618 // El tipo o el miembro estï¿½n obsoletos
 
 namespace Game.Entities
 {
@@ -29,11 +29,11 @@ namespace Game.Entities
             _animator = GetComponent<Animator>();
 
             _renderer.color = ColorPalettesManager.Instance.GetRandomColor();
-            trailParticles.startColor = new Color(_renderer.color.r, _renderer.color.g, _renderer.color.b, 0.25f); // Código obsoleto pero que me da pereza buscar hacerlo bien :)
+            trailParticles.startColor = new Color(_renderer.color.r, _renderer.color.g, _renderer.color.b, 0.25f); // Cï¿½digo obsoleto pero que me da pereza buscar hacerlo bien :)
 
-#if UNITY_STANDALONE
+#if UNITY_STANDALONE || UNITY_WEBGL
 
-            _moveSpeed = 0.02f;
+            _moveSpeed = 0.1f;
 
 #endif
 

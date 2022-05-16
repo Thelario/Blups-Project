@@ -32,6 +32,8 @@ namespace Game.Spawnners
             LevelManager.OnLevelPause += SetSpawnFalse;
 
             DifficultyManager.OnDifficultyChange += ChangeDifficulty;
+            GameManager.OnPlayerDeath += SetSpawnFalse;
+            GameManager.OnPlayerRevive += SetSpawnTrue;
         }
 
         private void OnDestroy()
@@ -43,6 +45,8 @@ namespace Game.Spawnners
             LevelManager.OnLevelPause -= SetSpawnFalse;
 
             DifficultyManager.OnDifficultyChange -= ChangeDifficulty;
+            GameManager.OnPlayerDeath -= SetSpawnFalse;
+            GameManager.OnPlayerRevive -= SetSpawnTrue;
         }
 
         private void OnLevelWasLoaded()
@@ -71,7 +75,7 @@ namespace Game.Spawnners
                     break;
             }
             
-            #if UNITY_EDITOR || UNITY_STANDALONE
+            #if UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBGL
             _timeBetweenObstacles -= 0.05f;
             #endif
         }

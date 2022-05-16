@@ -1,3 +1,4 @@
+using System.Collections;
 using Game.Managers;
 using UnityEngine;
 
@@ -22,7 +23,11 @@ namespace Game.Entities
         [SerializeField] private GameObject bullet;
         [SerializeField] private Transform shootPoint;
         [SerializeField] private Animator animator;
-
+        [SerializeField] private SpriteRenderer left;
+        [SerializeField] private SpriteRenderer right;
+        [SerializeField] private ParticleSystem leftParticles;
+        [SerializeField] private ParticleSystem rightParticles;
+        
         private float _timeBetweenShotsCounter;
 
         protected override void Awake()
@@ -35,6 +40,9 @@ namespace Game.Entities
         protected override void Update()
         {
             base.Update();
+            
+            if (invincible)
+                return;
             
             Shoot();
         }
@@ -92,6 +100,30 @@ namespace Game.Entities
                 Difficulty.Hard => timeBetweenShotsHard,
                 _ => 1f
             };
+        }
+        
+        protected override IEnumerator PlayerDies()
+        {
+            GameManager.Instance.PlayerDies();
+            invincible = true;
+            particles.Stop();
+            spRenderer.enabled = false;
+            right.enabled = false;
+            left.enabled = false;
+            leftParticles.Stop();
+            rightParticles.Stop();
+            rb2D.velocity = Vector2.zero;
+
+            yield return new WaitForSecondsRealtime(timePassedWhenHit);
+
+            particles.Play();
+            leftParticles.Play();
+            rightParticles.Play();
+            spRenderer.enabled = true;
+            right.enabled = true;
+            left.enabled = true;
+            invincible = false;
+            GameManager.Instance.PlayerRevive();
         }
     }
 }

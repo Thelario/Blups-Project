@@ -49,3 +49,7 @@ MonoBehaviour:
     particlePrefab: {fileID: 3012550279389331543, guid: 193c6465bb499844d8bbc507843408d9, type: 3}
   - type: 1
     particlePrefab: {fileID: 4621770489949683254, guid: bac727861e520f74f90d4b70a6a745a6, type: 3}
+  - type: 2
+    particlePrefab: {fileID: 6390991008259377700, guid: fed7ee75286c54749b37a73f5dbe1978, type: 3}
+  - type: 3
+    particlePrefab: {fileID: 6390991008259377700, guid: fed7ee75286c54749b37a73f5dbe1978, type: 3}

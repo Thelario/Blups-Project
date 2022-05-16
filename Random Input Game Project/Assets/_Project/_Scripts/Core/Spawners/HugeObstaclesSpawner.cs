@@ -36,6 +36,8 @@ namespace Game.Spawnners
             LevelManager.OnLevelPause += SetSpawnFalse;
 
             DifficultyManager.OnDifficultyChange += ChangeDifficulty;
+            GameManager.OnPlayerDeath += SetSpawnFalse;
+            GameManager.OnPlayerRevive += SetSpawnTrue;
         }
 
         private void OnDestroy()
@@ -47,6 +49,8 @@ namespace Game.Spawnners
             LevelManager.OnLevelPause -= SetSpawnFalse;
 
             DifficultyManager.OnDifficultyChange -= ChangeDifficulty;
+            GameManager.OnPlayerDeath -= SetSpawnFalse;
+            GameManager.OnPlayerRevive -= SetSpawnTrue;
         }
 
         private void OnLevelWasLoaded()
@@ -89,12 +93,12 @@ namespace Game.Spawnners
                     Direction randomDir1 = (Direction)Random.Range(0, 2);
                     Vector3 spawnPoint1 = GetRandomSpawnpoint(randomDir1);
                     exclamationManager.CreateExclamation(spawnPoint1, randomDir1, _timeBetweenSpawns);
-                    SoundManager.Instance.PlaySound(SoundType.Danger, Random.Range(0.10f, 0.2f));
+                    SoundManager.Instance.PlaySound(SoundType.Danger, 0.5f);
 
                     Direction randomDir2 = (Direction)Random.Range(0, 2);
                     Vector3 spawnPoint2 = GetRandomSpawnpoint(randomDir2);
                     exclamationManager.CreateExclamation(spawnPoint2, randomDir2, _timeBetweenSpawns);
-                    SoundManager.Instance.PlaySound(SoundType.Danger, Random.Range(0.10f, 0.2f));
+                    SoundManager.Instance.PlaySound(SoundType.Danger, 0.5f);
 
                     yield return new WaitForSeconds(_timeBetweenSpawns);
 
@@ -114,7 +118,7 @@ namespace Game.Spawnners
                     Direction randomDir = (Direction)Random.Range(0, 2);
                     Vector3 spawnPoint = GetRandomSpawnpoint(randomDir);
                     exclamationManager.CreateExclamation(spawnPoint, randomDir, _timeBetweenSpawns);
-                    SoundManager.Instance.PlaySound(SoundType.Danger, Random.Range(0.10f, 0.2f));
+                    SoundManager.Instance.PlaySound(SoundType.Danger, 0.5f);
 
                     yield return new WaitForSeconds(_timeBetweenSpawns);
 

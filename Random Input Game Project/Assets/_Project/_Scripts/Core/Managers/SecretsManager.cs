@@ -25,6 +25,34 @@ namespace Game.Managers
         [SerializeField] private Animator secretPickedAnimator;
         [SerializeField] private string secretAnimationName;
         [SerializeField] private float secretAnimationTime;
+
+        protected override void Awake()
+        {
+            base.Awake();
+            
+            LoadSecrets();
+        }
+
+        private void SaveSecrets()
+        {
+            foreach (Secret s in availableSecrets)
+            {
+                PlayerPrefs.SetInt(s.name, s.found ? 1 : 0);
+            }
+            
+            PlayerPrefs.Save();
+        }
+
+        private void LoadSecrets()
+        {
+            foreach (Secret s in availableSecrets)
+            {
+                if (!PlayerPrefs.HasKey(s.name))
+                    return;
+
+                s.found = PlayerPrefs.GetInt(s.name) == 1;
+            }
+        }
         
         public void UnlockRandomSecret()
         {
@@ -45,6 +73,8 @@ namespace Game.Managers
             
             // Then we mark as found one random secret from those secrets that we have retrieved
             notFoundSecrets[Random.Range(0, notFoundSecrets.Count)].found = true;
+            
+            SaveSecrets();
             
             CheckKeepSpawningSecrets();
         }

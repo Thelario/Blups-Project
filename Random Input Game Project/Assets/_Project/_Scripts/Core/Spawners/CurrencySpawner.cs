@@ -29,11 +29,15 @@ namespace Game.Spawnners
             _previousPos = Vector3.zero;
 
             DifficultyManager.OnDifficultyChange += ChangeDifficulty;
+            GameManager.OnPlayerDeath += StopSpawning;
+            GameManager.OnPlayerRevive += StartSpawning;
         }
 
         private void OnDestroy()
         {
             DifficultyManager.OnDifficultyChange -= ChangeDifficulty;
+            GameManager.OnPlayerDeath -= StopSpawning;
+            GameManager.OnPlayerRevive -= StartSpawning;
         }
 
         private void OnLevelWasLoaded()

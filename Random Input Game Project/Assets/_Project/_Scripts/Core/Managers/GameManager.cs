@@ -7,6 +7,10 @@ namespace Game.Managers
         public delegate void RandomDirectionChange();
         public static event RandomDirectionChange OnRandomDirectionChange;
 
+        public delegate void PlayerDeath();
+        public static event PlayerDeath OnPlayerDeath;
+        public static event PlayerDeath OnPlayerRevive;
+
         [HideInInspector] public Direction obstaclesCurrentDirection;
 
         public bool loopIndefinitely = false;
@@ -33,6 +37,16 @@ namespace Game.Managers
         public void SelectLoopingMinigames()
         {
             loopIndefinitely = false;
+        }
+
+        public void PlayerDies()
+        {
+            OnPlayerDeath?.Invoke();
+        }
+
+        public void PlayerRevive()
+        {
+            OnPlayerRevive?.Invoke();
         }
     }
 }
